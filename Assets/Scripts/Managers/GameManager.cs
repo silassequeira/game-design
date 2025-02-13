@@ -1,8 +1,6 @@
 // Singleton for game state
 // Global game state and level management.
 
-
-// GameManager.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -20,7 +18,15 @@ public class GameManager : MonoBehaviour
         Paused
     }
     
-    public GameState CurrentGameState { get; private set; }
+    private GameState currentGameState;
+    public GameState CurrentGameState => currentGameState;
+    
+    // Add this method to change game state
+    public void SetGameState(GameState newState)
+    {
+        currentGameState = newState;
+    }
+
     public int CurrentLevel { get; private set; }
     public Vector3 LastCheckpoint { get; private set; }
     
@@ -40,7 +46,7 @@ public class GameManager : MonoBehaviour
     
     private void InitializeGame()
     {
-        CurrentGameState = GameState.Loading;
+        currentGameState = GameState.Loading;
         CurrentLevel = 1;
         StartCoroutine(LoadingSequence());
     }
@@ -54,13 +60,13 @@ public class GameManager : MonoBehaviour
     
     public void LoadTitleScreen()
     {
-        CurrentGameState = GameState.TitleScreen;
+        currentGameState = GameState.TitleScreen;
         SceneManager.LoadScene("TitleScreen");
     }
     
     public void StartGame()
     {
-        CurrentGameState = GameState.Playing;
+        currentGameState = GameState.Playing;
         LoadLevel(CurrentLevel);
     }
     
@@ -81,18 +87,18 @@ public class GameManager : MonoBehaviour
     
     public void PauseGame()
     {
-        if (CurrentGameState == GameState.Playing)
+        if (currentGameState == GameState.Playing)
         {
-            CurrentGameState = GameState.Paused;
+            currentGameState = GameState.Paused;
             Time.timeScale = 0f;
         }
     }
     
     public void ResumeGame()
     {
-        if (CurrentGameState == GameState.Paused)
+        if (currentGameState == GameState.Paused)
         {
-            CurrentGameState = GameState.Playing;
+            currentGameState = GameState.Playing;
             Time.timeScale = 1f;
         }
     }

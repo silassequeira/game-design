@@ -109,13 +109,13 @@ public class SceneLoader : MonoBehaviour
     public IEnumerator LoadMainMenu()
     {
         yield return StartCoroutine(LoadSceneAsync(MAIN_MENU_SCENE));
-        GameManager.Instance.CurrentGameState = GameManager.GameState.MainMenu;
+        GameManager.Instance.SetGameState(GameManager.GameState.MainMenu);
     }
     
     public IEnumerator LoadGameLevel(int levelNumber)
     {
         yield return StartCoroutine(LoadSceneAsync($"Level_{levelNumber}"));
-        GameManager.Instance.CurrentGameState = GameManager.GameState.Playing;
+        GameManager.Instance.SetGameState(GameManager.GameState.Playing);
     }
     
     private IEnumerator LoadSceneAsync(string sceneName)
@@ -175,21 +175,3 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneAsync(SceneManager.GetActiveScene().name));
     }
 }
-
-
-// Scene Flow
-// Preload Scene: Initializes core systems (GameManager, SaveManager) using DontDestroyOnLoad
-// This scene is responsible for setting up essential game systems that persist across scenes.
-
-
-// Loading Screen: Uses SceneManager.LoadSceneAsync with loading progress bar
-// This scene displays a loading screen with a progress bar while the next scene is being loaded asynchronously.
-
-
-// Title Screen: Simple "Press Any Key" with animated logo
-// This scene shows a title screen with an animated logo and waits for the player to press any key to proceed.
-
-
-// Main Menu: Implement using Unity UI with event-based navigation
-// This scene contains the main menu, which is implemented using Unity's UI system and allows navigation through events.
-

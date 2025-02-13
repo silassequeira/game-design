@@ -62,23 +62,23 @@ public class PlayerController : MonoBehaviour
             return;
             
         // Handle movement
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
         
         // Handle jump
         if (isJumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isJumping = false;
         }
         
         // Better jump physics
-        if (rb.velocity.y < 0)
+        if (rb.linearVelocity.y < 0)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
     }
     
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         // Set animation parameters
         animController.SetGrounded(isGrounded);
-        animController.SetVerticalVelocity(rb.velocity.y);
+        animController.SetVerticalVelocity(rb.linearVelocity.y);
         animController.SetHorizontalVelocity(Mathf.Abs(horizontalInput));
     }
     
