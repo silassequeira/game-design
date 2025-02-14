@@ -115,4 +115,10 @@ public class AudioManager : MonoBehaviour
     {
         sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
     }
+
+public void SetMasterVolume(float volume)
+{
+    AudioMixer masterMixer = musicMixer.audioMixer; // Assuming both music & sfx use the same mixer
+    masterMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+}
 }

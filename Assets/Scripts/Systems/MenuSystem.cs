@@ -5,25 +5,30 @@ using System.Collections;
 public class MenuSystem : MonoBehaviour
 {
     [Header("Menu Panels")]
-    [SerializeField] private GameObject titleScreen;
-    [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject TitleScreen;
+    [SerializeField] private GameObject LoadingScreen;
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject SettingsMenu;
+
+
+    [Header("PauseMenu Controls")]
+
+    [SerializeField] private Button ResumeButton;
+    [SerializeField] private Button LoadButton;
+    [SerializeField] private Button SettingsButton;
+    [SerializeField] private Button QuitButton;
+
     
     [Header("Settings Controls")]
-    [SerializeField] private Slider musicVolumeSlider;
-    [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private Button BackButton;
+    [SerializeField] private Slider VolumeSlider;
     
     private void Start()
     {
         // Initialize volume sliders
-        if (musicVolumeSlider != null)
+        if (VolumeSlider != null)
         {
-            musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
-        }
-        if (sfxVolumeSlider != null)
-        {
-            sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+            VolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         }
         
         ShowTitleScreen();
@@ -41,42 +46,42 @@ public class MenuSystem : MonoBehaviour
     public void ShowTitleScreen()
     {
         HideAllMenus();
-        titleScreen.SetActive(true);
+        TitleScreen.SetActive(true);
         GameManager.Instance.LoadTitleScreen();
     }
     
-    public void ShowMainMenu()
+    public void ShowLoadingScreen()
     {
         HideAllMenus();
-        mainMenu.SetActive(true);
+        LoadingScreen.SetActive(true);
     }
     
     public void ShowSettingsMenu()
     {
         HideAllMenus();
-        settingsMenu.SetActive(true);
+        SettingsMenu.SetActive(true);
     }
     
     public void TogglePauseMenu()
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.Playing)
         {
-            pauseMenu.SetActive(true);
+            PauseMenu.SetActive(true);
             GameManager.Instance.PauseGame();
         }
         else if (GameManager.Instance.CurrentGameState == GameManager.GameState.Paused)
         {
-            pauseMenu.SetActive(false);
+            PauseMenu.SetActive(false);
             GameManager.Instance.ResumeGame();
         }
     }
     
     private void HideAllMenus()
     {
-        titleScreen.SetActive(false);
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        settingsMenu.SetActive(false);
+        TitleScreen.SetActive(false);
+        LoadingScreen.SetActive(false);
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
     }
     
     // Button handlers
@@ -110,13 +115,9 @@ public class MenuSystem : MonoBehaviour
     }
     
     // Settings handlers
-    private void OnMusicVolumeChanged(float value)
+    private void OnVolumeChanged(float value)
     {
         AudioManager.Instance.SetMusicVolume(value);
-    }
-    
-    private void OnSFXVolumeChanged(float value)
-    {
         AudioManager.Instance.SetSFXVolume(value);
     }
 }
