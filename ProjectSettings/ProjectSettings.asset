@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 67c1214d977c91640aaf78c21cd1be7a
+  productGUID: 2d9cc174db7f9fa45afaec1e0750e37e
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -673,10 +673,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 670837df-8382-4d0f-bbcf-2aa5b79a1734
+  cloudProjectId: 0d9f6255-4c8c-4fdf-81d2-d4021adc8d1f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project (2)
+  projectName: My project (2) 2025-02-25_13-54-49
   organizationId: silas_sequeira
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

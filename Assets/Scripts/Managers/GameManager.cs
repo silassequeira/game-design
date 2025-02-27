@@ -13,22 +13,19 @@ public class GameManager : MonoBehaviour
     {
         Loading,
         TitleScreen,
-        MainMenu,
-        Playing,
+        Playing, 
         Paused
     }
     
     private GameState currentGameState;
     public GameState CurrentGameState => currentGameState;
     
-    // Add this method to change game state
     public void SetGameState(GameState newState)
     {
         currentGameState = newState;
     }
 
     public int CurrentLevel { get; private set; }
-    public Vector3 LastCheckpoint { get; private set; }
     
     private void Awake()
     {
@@ -61,28 +58,15 @@ public class GameManager : MonoBehaviour
     public void LoadTitleScreen()
     {
         currentGameState = GameState.TitleScreen;
-        SceneManager.LoadScene("TitleScreen");
+        UserInterfaceSystem.Instance.ShowTitleScreen();
     }
     
     public void StartGame()
     {
+        Debug.Log("GameManager: Starting game...");
         currentGameState = GameState.Playing;
-        LoadLevel(CurrentLevel);
-    }
-    
-    public void LoadLevel(int levelNumber)
-    {
-        if (levelNumber >= 1 && levelNumber <= 6)
-        {
-            CurrentLevel = levelNumber;
-            SceneManager.LoadScene($"Level_{levelNumber}");
-        }
-    }
-    
-    public void SetCheckpoint(Vector3 position)
-    {
-        LastCheckpoint = position;
-        SaveManager.Instance.SaveGame();
+        CurrentLevel = 1;
+        Debug.Log("GameManager: Game state set to Playing");
     }
     
     public void PauseGame()
@@ -94,14 +78,20 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void ResumeGame()
+public void ResumeGame()
+{
+    Debug.Log("ResumeGame button clicked");
+    if (currentGameState == GameState.Paused)
     {
-        if (currentGameState == GameState.Paused)
-        {
-            currentGameState = GameState.Playing;
-            Time.timeScale = 1f;
-        }
+        currentGameState = GameState.Playing;
+        Time.timeScale = 1f;
+        Debug.Log("Game state set to Playing");
     }
+    else
+    {
+        Debug.Log("Game is not in Paused state");
+    }
+}
     
     public void QuitGame()
     {
