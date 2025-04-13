@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 10b7bcc8643d3ee4b9320fd91b36c50c
+guid: 133110aa7b0580d4197d3375cf56e58c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7395926291094070448
-    second: sprites sketch jump-7_0
+      213: -5048656014557147309
+    second: sprites sketch lower-1_0
   - first:
-      213: 8554465662817000303
-    second: sprites sketch jump-7_1
+      213: -7144606451516049085
+    second: sprites sketch lower-1_1
   - first:
-      213: -5544077821081985345
-    second: sprites sketch jump-7_2
+      213: -3842042982747859351
+    second: sprites sketch lower-1_2
   - first:
-      213: -3779479673646678350
-    second: sprites sketch jump-7_3
+      213: 3834771767647334489
+    second: sprites sketch lower-1_3
   - first:
-      213: -1130451189853327585
-    second: sprites sketch jump-7_4
+      213: 5200592883230286008
+    second: sprites sketch lower-1_4
   - first:
-      213: -3593764060586731815
-    second: sprites sketch jump-7_5
+      213: -8186054217088357475
+    second: sprites sketch lower-1_5
   - first:
-      213: 9072765515674419616
-    second: sprites sketch jump-7_6
+      213: -6549955604005674078
+    second: sprites sketch lower-1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,155 +118,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprites sketch jump-7_0
+      name: sprites sketch lower-1_0
       rect:
         serializedVersion: 2
-        x: 64
+        x: 55
         y: 227
         width: 26
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05b9d5a39346c5990800000000000000
-      internalID: -7395926291094070448
+      spriteID: 35f8e2b8a129fe9b0800000000000000
+      internalID: -5048656014557147309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_1
+      name: sprites sketch lower-1_1
       rect:
         serializedVersion: 2
-        x: 67
+        x: 58
         y: 259
         width: 12
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6bdb73623197b670800000000000000
-      internalID: 8554465662817000303
+      spriteID: 349fb6d394249dc90800000000000000
+      internalID: -7144606451516049085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_2
+      name: sprites sketch lower-1_2
       rect:
         serializedVersion: 2
-        x: 76
-        y: 0
+        x: 67
+        y: 10
         width: 403
-        height: 386
+        height: 849
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbe5943789a7f03b0800000000000000
-      internalID: -5544077821081985345
+      spriteID: 966188163425eaac0800000000000000
+      internalID: -3842042982747859351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_3
+      name: sprites sketch lower-1_3
       rect:
         serializedVersion: 2
-        x: 46
+        x: 37
         y: 228
         width: 16
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2befa78e2479c8bc0800000000000000
-      internalID: -3779479673646678350
+      spriteID: 950f05dea98d73530800000000000000
+      internalID: 3834771767647334489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_4
+      name: sprites sketch lower-1_4
       rect:
         serializedVersion: 2
-        x: 60
+        x: 51
         y: 244
         width: 10
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f1fefd8d1a4df40f0800000000000000
-      internalID: -1130451189853327585
+      spriteID: 8b0ad526ca73c2840800000000000000
+      internalID: 5200592883230286008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_5
+      name: sprites sketch lower-1_5
       rect:
         serializedVersion: 2
-        x: 33
+        x: 24
         y: 158
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d69922a0a2602ec0800000000000000
-      internalID: -3593764060586731815
+      spriteID: d9b2c56af0b456e80800000000000000
+      internalID: -8186054217088357475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-7_6
+      name: sprites sketch lower-1_6
       rect:
         serializedVersion: 2
-        x: 57
+        x: 48
         y: 181
         width: 37
         height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a1003cba20f8ed70800000000000000
-      internalID: 9072765515674419616
+      spriteID: 2a3a9a0d412e915a0800000000000000
+      internalID: -6549955604005674078
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 490c259b9fac9b5499101313c4198fde
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sprites sketch jump-7_0: -7395926291094070448
-      sprites sketch jump-7_1: 8554465662817000303
-      sprites sketch jump-7_2: -5544077821081985345
-      sprites sketch jump-7_3: -3779479673646678350
-      sprites sketch jump-7_4: -1130451189853327585
-      sprites sketch jump-7_5: -3593764060586731815
-      sprites sketch jump-7_6: 9072765515674419616
+      sprites sketch lower-1_0: -5048656014557147309
+      sprites sketch lower-1_1: -7144606451516049085
+      sprites sketch lower-1_2: -3842042982747859351
+      sprites sketch lower-1_3: 3834771767647334489
+      sprites sketch lower-1_4: 5200592883230286008
+      sprites sketch lower-1_5: -8186054217088357475
+      sprites sketch lower-1_6: -6549955604005674078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

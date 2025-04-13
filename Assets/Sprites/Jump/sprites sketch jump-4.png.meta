@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -7636698451597321247
     second: sprites sketch jump-4_0
+  - first:
+      213: 5508975641066620778
+    second: sprites sketch jump-4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,10 +106,10 @@ TextureImporter:
       name: sprites sketch jump-4_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 476
-        height: 416
+        x: 8
+        y: 274
+        width: 477
+        height: 429
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,11 +124,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sprites sketch jump-4_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 107
+        width: 23
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a674e026820d37c40800000000000000
+      internalID: 5508975641066620778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprites sketch jump-4_0: -7636698451597321247
+      sprites sketch jump-4_1: 5508975641066620778
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

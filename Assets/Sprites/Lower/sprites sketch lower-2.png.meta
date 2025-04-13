@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: e22f8f125dcba6b428fa452626c9b8de
+guid: bf541c9d5c509ff4a825a9c6e9bab7e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8864014274067746503
-    second: sprites sketch jump-3_0
+      213: 2494716442004790824
+    second: sprites sketch lower-2_0
   - first:
-      213: -598060782221003758
-    second: sprites sketch jump-3_1
+      213: -8473791516975467672
+    second: sprites sketch lower-2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprites sketch jump-3_0
+      name: sprites sketch lower-2_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 341
-        width: 424
-        height: 435
+        x: 81
+        y: 178
+        width: 13
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93133363bf1bcf480800000000000000
-      internalID: -8864014274067746503
+      spriteID: 82e950de2630f9220800000000000000
+      internalID: 2494716442004790824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprites sketch jump-3_1
+      name: sprites sketch lower-2_1
       rect:
         serializedVersion: 2
-        x: 196
-        y: 186
-        width: 21
-        height: 157
+        x: 85
+        y: 8
+        width: 383
+        height: 367
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 214ff9123e243b7f0800000000000000
-      internalID: -598060782221003758
+      spriteID: 86375f9e28b076a80800000000000000
+      internalID: -8473791516975467672
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sprites sketch jump-3_0: -8864014274067746503
-      sprites sketch jump-3_1: -598060782221003758
+      sprites sketch lower-2_0: 2494716442004790824
+      sprites sketch lower-2_1: -8473791516975467672
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
