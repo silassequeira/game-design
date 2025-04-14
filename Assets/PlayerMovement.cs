@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     SpriteRenderer spr;
     float moveForce=2;
+    float jumpForce=5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,11 +25,18 @@ public class PlayerMovement : MonoBehaviour
         else{
             anim.SetBool("isWalking",false);
         }
-        if(rb.linearVelocity.x<0){
+        if(rb.linearVelocity.x<0.01){
             spr.flipX=true;
         }
         else{
             spr.flipX=false;
+        }
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
+            rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
+            anim.SetTrigger("Jump");
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow)){
+            anim.SetTrigger("Duck");
         }
     }
 }
