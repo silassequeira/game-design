@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     SpriteRenderer spr;
     float moveForce=2;
-    float jumpForce=5;
+    float jumpForce=7;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         else{
             anim.SetBool("isWalking",false);
         }
-        if(rb.linearVelocity.x<0.01){
+        if(rb.linearVelocity.x<0){
             spr.flipX=true;
         }
         else{
