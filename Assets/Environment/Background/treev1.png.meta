@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ac9cdecae541ae45bc03b9adb5b7f1c
+guid: 10c1c306b1f3b1b40bee0cb8a2aca60b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 824496011941878852
-    second: Rockv1_0
+      213: 5745081534926402900
+    second: treev1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rockv1_0
+      name: treev1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 422
-        height: 184
+        width: 523
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44c958621c2317b00800000000000000
-      internalID: 824496011941878852
+      spriteID: 455b1fe9731aabf40800000000000000
+      internalID: 5745081534926402900
       vertices: []
       indices: 
       edges: []

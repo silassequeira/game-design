@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background Trees
+    uniqueID: 925357077
+    locked: 0
+  - name: Background Ahead
+    uniqueID: 3867576517
+    locked: 0
+  - name: RocksBehind
+    uniqueID: 287428829
+    locked: 0
   - name: Grass
     uniqueID: 2573816673
     locked: 0

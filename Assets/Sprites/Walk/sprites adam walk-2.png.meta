@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 69e62a43ef406ec4e8c65c74c4880d8d
+guid: 6ef88a40cc1cf1448bdad94cf0d82328
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6937810970246165826
-    second: Rockv4_0
+      213: -4611116752442037162
+    second: sprites adam walk-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rockv4_0
+      name: sprites adam walk-2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 413
-        height: 200
+        x: 79
+        y: 27
+        width: 451
+        height: 832
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 245b450c15e084060800000000000000
-      internalID: 6937810970246165826
+      spriteID: 65ce6d09eb50200c0800000000000000
+      internalID: -4611116752442037162
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6e6aab7c4a314ce4b901f57262ca6ef1
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprites adam walk-2_0: -4611116752442037162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
