@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     SpriteRenderer spr;
     float moveForce=2;
     float jumpForce=7;
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask Ground;
+    bool isGrounded;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,12 +35,25 @@ public class PlayerMovement : MonoBehaviour
         else{
             spr.flipX=false;
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
+
+        // Ground check
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, Ground);
+
+        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded){
             rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
             anim.SetTrigger("Jump");
         }
         if(Input.GetKeyDown(KeyCode.DownArrow)){
             anim.SetTrigger("Duck");
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
 }
