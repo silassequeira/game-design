@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background Trees
+    uniqueID: 925357077
+    locked: 0
+  - name: Background Ahead
+    uniqueID: 3867576517
+    locked: 0
+  - name: RocksBehind
+    uniqueID: 287428829
+    locked: 0
+  - name: Grass
+    uniqueID: 2573816673
+    locked: 0
+  - name: RocksAhead
+    uniqueID: 2661856571
+    locked: 0
+  m_RenderingLayers:
+  - Default
