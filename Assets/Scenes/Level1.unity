@@ -7493,6 +7493,7 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 64
+  newSprite: {fileID: 0}
 --- !u!1 &2043213589
 GameObject:
   m_ObjectHideFlags: 0
