@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 883697c892ef27547ae67511d4458aba
+guid: 50ec4541c45d5ba499ef1e0fe61138a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 552074173062822104
-    second: Rock v10_0
-  - first:
-      213: 5241141552273243748
-    second: Rock v10_1
-  - first:
-      213: -57358470150006622
-    second: Rock v10_2
+      213: -1545177853101213218
+    second: round_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,57 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rock v10_0
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 187
-        width: 14
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d8b31f098c59a700800000000000000
-      internalID: 552074173062822104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock v10_1
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 177
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 46e39c819764cb840800000000000000
-      internalID: 5241141552273243748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock v10_2
+      name: round_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 340
-        height: 176
+        width: 132
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a859d976c8343ff0800000000000000
-      internalID: -57358470150006622
+      spriteID: ed9f917edec6e8ae0800000000000000
+      internalID: -1545177853101213218
       vertices: []
       indices: 
       edges: []
@@ -175,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -184,10 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Rock v10_0: 552074173062822104
-      Rock v10_1: 5241141552273243748
-      Rock v10_2: -57358470150006622
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

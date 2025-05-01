@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask Ground;
     bool isGrounded;
+    public Sprite newSprite; 
+     bool spriteChanged = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.DownArrow)){
             anim.SetTrigger("Duck");
+        }
+
+         if (!spriteChanged && transform.position.x >= 64f)
+        {
+            spr.sprite = newSprite;
+            spriteChanged = true; // Only change once!
         }
     }
 
