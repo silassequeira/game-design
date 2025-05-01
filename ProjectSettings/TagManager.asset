@@ -50,6 +50,9 @@ TagManager:
   - name: RocksBehind
     uniqueID: 287428829
     locked: 0
+  - name: Blackness
+    uniqueID: 216725901
+    locked: 0
   - name: Grass
     uniqueID: 2573816673
     locked: 0

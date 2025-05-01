@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 50ec4541c45d5ba499ef1e0fe61138a5
+guid: 7cc47ad27622fb14da81a5bac5064cc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1545177853101213218
-    second: round_0
+      213: 2863303504738354365
+    second: Branch v1 1_0
+  - first:
+      213: -1200655702933720551
+    second: Branch v1 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: round_0
+      name: Branch v1 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 132
-        height: 79
+        width: 166
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed9f917edec6e8ae0800000000000000
-      internalID: -1545177853101213218
+      spriteID: db48f0cfd5f7cb720800000000000000
+      internalID: 2863303504738354365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Branch v1 1_1
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 46
+        width: 116
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912b611eff9665fe0800000000000000
+      internalID: -1200655702933720551
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      round_0: -1545177853101213218
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
