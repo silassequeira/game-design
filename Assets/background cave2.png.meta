@@ -634,7 +634,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background cave2_0: -2553476832645919848
+      background cave2_1: 3546174377289006367
+      background cave2_10: 1295062536890612604
+      background cave2_11: -8549856154379464293
+      background cave2_12: -2153017234076766696
+      background cave2_13: -9216438999764517401
+      background cave2_14: 5994262680846127471
+      background cave2_15: -5288245715307616576
+      background cave2_16: -1436214345119005940
+      background cave2_17: -3845898625915907589
+      background cave2_18: -7271031882983927706
+      background cave2_19: 1193548200475840062
+      background cave2_2: -6514792610996590815
+      background cave2_20: -1746310685286079632
+      background cave2_3: -5792985919965201049
+      background cave2_4: -1561410941247472060
+      background cave2_5: -2899543703685570401
+      background cave2_6: 7212907915747589299
+      background cave2_7: -9088882067953534236
+      background cave2_8: 8129898192532627722
+      background cave2_9: 6330442530889870049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

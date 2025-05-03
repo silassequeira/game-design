@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background super mega far away_0: 6815076854923234602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

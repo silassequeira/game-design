@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Claudev4_0: 3624857583429461204
+      Claudev4_1: 7664144634267386699
+      Claudev4_2: 1321790258854729346
+      Claudev4_3: -8288435698895190727
+      Claudev4_4: 2217517363104163592
+      Claudev4_5: 5846723198191381384
+      Claudev4_6: -3810591356289431417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

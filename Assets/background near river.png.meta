@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background near river_0: -2513619710895359892
+      background near river_1: 2749608259667187990
+      background near river_2: 5343551434639777445
+      background near river_3: 591893966831598452
+      background near river_4: -2269309938002221404
+      background near river_5: -7620330262055938200
+      background near river_6: -5371361762221911240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
