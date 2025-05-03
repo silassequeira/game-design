@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferCounter;
     private bool jumpInput;
     private bool jumpInputHeld;
-    
+
     // Constants
     //private const float groundedRememberTime = 0.1f;
     //private float groundedRemember = 0;
