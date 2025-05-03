@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
     float moveForce=2;
     float jumpForce=7;
     public Transform groundCheck;
+    public Transform player;
     public float groundCheckRadius = 0.2f;
     public LayerMask Ground;
     bool isGrounded;
     public Sprite newSprite; 
      bool spriteChanged = false;
+     public float xThreshold = 63.17f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,16 +45,22 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded){
             rb.AddForce(transform.up*jumpForce, ForceMode2D.Impulse);
-            anim.SetTrigger("Jump");
+                anim.SetTrigger("Jump");
         }
         if(Input.GetKeyDown(KeyCode.DownArrow)){
-            anim.SetTrigger("Duck");
+                anim.SetTrigger("Duck");
         }
 
-         if (!spriteChanged && transform.position.x >= 64f)
+         if (!spriteChanged && player.position.x >= xThreshold)
         {
             spr.sprite = newSprite;
             spriteChanged = true; // Only change once!
+        }
+        if(!spriteChanged){
+            anim.SetBool("isTogether",false);
+        }
+        else{
+            anim.SetBool("isTogether",true);
         }
     }
 

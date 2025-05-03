@@ -8742,11 +8742,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 1326467264}
+  player: {fileID: 2034923759}
   groundCheckRadius: 0.2
   Ground:
     serializedVersion: 2
     m_Bits: 64
-  newSprite: {fileID: 0}
+  newSprite: {fileID: 21300000, guid: c7b7fba850b43884fa88f0efed6f3a5d, type: 3}
+  xThreshold: 63.17
 --- !u!1 &2085573317
 GameObject:
   m_ObjectHideFlags: 0
