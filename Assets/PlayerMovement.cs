@@ -8,49 +8,49 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spr;
     
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float acceleration = 50f;
-    [SerializeField] private float deceleration = 50f;
-    [SerializeField] private float maxSpeed = 7f;
-    [SerializeField] private float airControlMultiplier = 0.5f;
+    [SerializeField] public float moveSpeed = 5f;
+    [SerializeField] public float acceleration = 50f;
+    [SerializeField] public float deceleration = 50f;
+    [SerializeField] public float maxSpeed = 7f;
+    [SerializeField] public float airControlMultiplier = 0.5f;
     
     [Header("Speed Momentum")]
-    [SerializeField] private bool useSpeedMomentum = true;
-    [SerializeField] private float initialMoveSpeed = 5f;       // Starting movement speed
-    [SerializeField] private float maxMoveSpeed = 9f;           // Maximum movement speed after acceleration
-    [SerializeField] private float speedBuildupRate = 1f;       // How quickly speed builds up (units/second)
-    [SerializeField] private float speedBuildupDelay = 0.5f;    // Time before speed starts increasing
+    [SerializeField] public bool useSpeedMomentum = true;
+    [SerializeField] public float initialMoveSpeed = 5f;       // Starting movement speed
+    [SerializeField] public float maxMoveSpeed = 9f;           // Maximum movement speed after acceleration
+    [SerializeField] public float speedBuildupRate = 1f;       // How quickly speed builds up (units/second)
+    [SerializeField] public float speedBuildupDelay = 0.5f;    // Time before speed starts increasing
    // [SerializeField] private float speedRetentionTime = 1.0f;   // How long speed is retained when changing direction
-    [SerializeField] private float speedLossRate = 2f;          // How quickly speed is lost when not moving
-    [SerializeField] private bool resetSpeedOnJump = false;     // Whether to reset speed when jumping
+    [SerializeField] public float speedLossRate = 2f;          // How quickly speed is lost when not moving
+    [SerializeField] public bool resetSpeedOnJump = false;     // Whether to reset speed when jumping
     
     [Header("Jump Settings")]
-    [SerializeField] private float jumpForce = 12f;
-    [SerializeField] private float fallMultiplier = 2.5f;
-    [SerializeField] private float lowJumpMultiplier = 2f;
-    [SerializeField] private float coyoteTime = 0.2f;
-    [SerializeField] private float jumpBufferTime = 0.1f;
-    [SerializeField] private float maxJumpDuration = 0.3f;      // Maximum time jump can be held
-    [SerializeField] private float jumpCutVelocityThreshold = 3f; // Minimum velocity required before jump cut applies
-    [SerializeField] private float jumpControlForce = 5f;       // Force applied while holding jump button
+    [SerializeField] public float jumpForce = 12f;
+    [SerializeField] public float fallMultiplier = 2.5f;
+    [SerializeField] public float lowJumpMultiplier = 2f;
+    [SerializeField] public float coyoteTime = 0.2f;
+    [SerializeField] public float jumpBufferTime = 0.1f;
+    [SerializeField] public float maxJumpDuration = 0.3f;      // Maximum time jump can be held
+    [SerializeField] public float jumpCutVelocityThreshold = 3f; // Minimum velocity required before jump cut applies
+    [SerializeField] public float jumpControlForce = 5f;       // Force applied while holding jump button
     
     [Header("Ground Check")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckRadius = 0.2f;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] public Transform groundCheck;
+    [SerializeField] public float groundCheckRadius = 0.2f;
+    [SerializeField] public LayerMask groundLayer;
     
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip jumpSound;
-    [SerializeField] private AudioClip landSound;
-    [SerializeField] private AudioClip speedBoostSound;
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip jumpSound;
+    [SerializeField] public AudioClip landSound;
+    [SerializeField] public AudioClip speedBoostSound;
     
     [Header("Visual Effects")]
-    [SerializeField] private ParticleSystem jumpParticles;
-    [SerializeField] private ParticleSystem landParticles;
-    [SerializeField] private ParticleSystem speedParticles;
-    [SerializeField] private GameObject shadowObject;
-    [SerializeField] private Sprite newSprite;
+    [SerializeField] public ParticleSystem jumpParticles;
+    [SerializeField] public ParticleSystem landParticles;
+    [SerializeField] public ParticleSystem speedParticles;
+    [SerializeField] public GameObject shadowObject;
+    [SerializeField] public Sprite newSprite;
     
     // State variables
     private bool isGrounded;
