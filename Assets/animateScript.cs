@@ -25,31 +25,33 @@ public class PlayerStateChanger : MonoBehaviour
         if (playerMovement == null) Debug.LogError("No PlayerMovement script assigned!");
     }
 
-    void Update()
+void Update()
+{
+    // Check if the player is within the horizontal and vertical thresholds
+    if (!hasChanged && targetObject != null &&
+        Mathf.Abs(transform.position.x - targetObject.position.x) <= proximityThreshold &&
+        Mathf.Abs(transform.position.y - targetObject.position.y) <= proximityThreshold)
     {
-        // Check if the player is near the target object
-        if (!hasChanged && targetObject != null && Vector3.Distance(transform.position, targetObject.position) <= proximityThreshold)
+        // Change the sprite
+        if (newSprite != null)
+            spriteRenderer.sprite = newSprite;
+
+        // Switch to a new Animator Controller
+        if (newAnimatorController != null)
+            animator.runtimeAnimatorController = newAnimatorController;
+
+        // Update PlayerMovement variables
+        if (playerMovement != null)
         {
-            // Change the sprite
-            if (newSprite != null)
-                spriteRenderer.sprite = newSprite;
-
-            // Switch to a new Animator Controller
-            if (newAnimatorController != null)
-                animator.runtimeAnimatorController = newAnimatorController;
-
-            // Update PlayerMovement variables
-            if (playerMovement != null)
-            {
-                playerMovement.moveSpeed = 3.8f;
-                playerMovement.maxSpeed = 12f;
-                playerMovement.initialMoveSpeed = 3.2f;
-                playerMovement.maxMoveSpeed = 5.2f;
-                playerMovement.jumpForce = 7.8f;
-                playerMovement.maxJumpDuration = 0.2f;
-            }
-
-            hasChanged = true;
+            playerMovement.moveSpeed = 3.8f;
+            playerMovement.maxSpeed = 12f;
+            playerMovement.initialMoveSpeed = 3.2f;
+            playerMovement.maxMoveSpeed = 5.2f;
+            playerMovement.jumpForce = 7.8f;
+            playerMovement.maxJumpDuration = 0.2f;
         }
+
+        hasChanged = true;
     }
+}
 }

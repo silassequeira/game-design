@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
 {
     [Header("Target Settings")]
     public Transform target;  // Reference to the player's transform
+    [SerializeField] private bool enableFollowing = false;
     [SerializeField] private bool useTargetVelocity = true;  // Whether to look ahead based on velocity
     [SerializeField] private float lookAheadFactor = 3.0f;   // How far to look ahead based on player speed
     [SerializeField] private float lookAheadReturnSpeed = 2.0f;  // How fast to return to normal position
@@ -69,7 +70,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (target == null)
+        
+        if (target == null || !ShouldFollowTarget())
             return;
 
         float deltaX = 0;
@@ -164,6 +166,28 @@ public class CameraFollow : MonoBehaviour
         
         // Save current position for next frame
         lastTargetPosition = target.position;
+    }
+
+        private bool ShouldFollowTarget()
+    {
+        // If following is manually disabled, return false
+        if (!enableFollowing)
+            return false;
+            
+        // Check game state - only follow if in Playing state
+        if (GameManager.Instance != null)
+        {
+            return GameManager.Instance.CurrentGameState == GameManager.GameState.Playing;
+        }
+        
+        // If no GameManager, use the manual enableFollowing setting
+        return enableFollowing;
+    }
+
+        // New public method to enable/disable following
+    public void SetFollowingEnabled(bool enabled)
+    {
+        enableFollowing = enabled;
     }
 
     // Exposed methods for gameplay events

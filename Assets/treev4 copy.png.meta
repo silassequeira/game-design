@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      treev4 copy_0: -668808434789974583
+      treev4 copy_1: 2680556913953537899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

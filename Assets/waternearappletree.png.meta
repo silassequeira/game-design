@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      waternearappletree_0: 5911766262482844226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

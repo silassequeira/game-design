@@ -4,10 +4,11 @@ public class SpriteDisabler : MonoBehaviour
 {
     public Transform player;
     public float xThreshold = 2f;
+    public float yThreshold = 2f; // Add a vertical threshold
 
-    private SpriteRenderer spriteRenderer;
-    private Animator animator;
-    private bool hasDisappeared = false;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    public bool hasDisappeared = false;
 
     void Start()
     {
@@ -17,8 +18,10 @@ public class SpriteDisabler : MonoBehaviour
 
     void Update()
     {
-        // Check if the player is within the threshold relative to this object's position
-        if (!hasDisappeared && Mathf.Abs(player.position.x - transform.position.x) <= xThreshold)
+        // Check if the player is within the horizontal and vertical thresholds
+        if (!hasDisappeared &&
+            Mathf.Abs(player.position.x - transform.position.x) <= xThreshold &&
+            Mathf.Abs(player.position.y - transform.position.y) <= yThreshold)
         {
             if (animator != null)
             {

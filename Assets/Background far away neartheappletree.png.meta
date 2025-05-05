@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background far away neartheappletree_0: -5525016366409878634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

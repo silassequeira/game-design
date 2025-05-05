@@ -61,13 +61,24 @@ public class GameManager : MonoBehaviour
         UserInterfaceSystem.Instance.ShowTitleScreen();
     }
     
-    public void StartGame()
+public void StartGame()
+{
+    Debug.Log("GameManager: Starting game...");
+    
+    // Check if we should play intro cutscene
+    if (IntroductoryCutscene.Instance != null)
     {
-        Debug.Log("GameManager: Starting game...");
+        // Start with cutscene (it will transition to Playing state when done)
+        IntroductoryCutscene.Instance.StartIntroCutscene();
+    }
+    else
+    {
+        // No cutscene available, directly set state to Playing
         currentGameState = GameState.Playing;
         CurrentLevel = 1;
         Debug.Log("GameManager: Game state set to Playing");
     }
+}
     
     public void PauseGame()
     {

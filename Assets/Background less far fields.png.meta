@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background less far fields_0: 8498694699628134736
+      Background less far fields_1: 161016408983967594
+      Background less far fields_2: -5486510944474142036
+      Background less far fields_3: 3936963682860606758
+      Background less far fields_4: 427253916847139408
+      Background less far fields_5: 7796623689987388365
+      Background less far fields_6: 2085432582405106288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
