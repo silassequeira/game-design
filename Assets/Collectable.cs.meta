@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 6c47ec447d7f88740855d3633ea06064
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spriteDisabler: {instanceID: 0}
+  - collectSound: {fileID: 8300000, guid: 01ba578de5129bd488dc726f7bdc7caf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

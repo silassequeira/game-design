@@ -1,2 +1,21 @@
 fileFormatVersion: 2
 guid: 07eefd65eeae059479de23afe30b4eea
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - groundCheck: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - jumpSound: {instanceID: 0}
+  - landSound: {instanceID: 0}
+  - speedBoostSound: {instanceID: 0}
+  - jumpParticles: {instanceID: 0}
+  - landParticles: {instanceID: 0}
+  - speedParticles: {instanceID: 0}
+  - shadowObject: {instanceID: 0}
+  - newSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -51,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public ParticleSystem speedParticles;
     [SerializeField] public GameObject shadowObject;
     [SerializeField] public Sprite newSprite;
+
+    [SerializeField] public AudioClip footstepSound;
+    [SerializeField] public float footstepInterval = 0.5f;
+    private float footstepTimer = 0f;
+
     
     // State variables
     private bool isGrounded;
@@ -121,6 +126,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+private void HandleFootsteps()
+{
+    if (isGrounded && Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+    {
+        footstepTimer -= Time.fixedDeltaTime;
+
+        if (footstepTimer <= 0f)
+        {
+            if (footstepSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(footstepSound);
+            }
+            footstepTimer = footstepInterval;
+        }
+    }
+    else
+    {
+        footstepTimer = 0f; 
+    }
+}
+
+
     private void Update()
     {
         // Input handling
@@ -394,12 +421,17 @@ public class PlayerMovement : MonoBehaviour
         if (rb.linearVelocity.x > 0.1f && !isFacingRight)
         {
             Flip();
+            
+
         }
         else if (rb.linearVelocity.x < -0.1f && isFacingRight)
         {
             Flip();
+            
+
         }
         
+        HandleFootsteps();
         // Update shadow position if present
         UpdateShadow();
     }
