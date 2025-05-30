@@ -24,16 +24,25 @@ public class CollectableManager : MonoBehaviour
     void Awake()
     {
         // Set up singleton
-        if (Instance == null)
+    if (Instance == null)
+    {
+        Instance = this;
+        
+        // Find the root GameObject
+        Transform root = transform;
+        while (root.parent != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            root = root.parent;
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        
+        // Make the root persist across scenes
+        DontDestroyOnLoad(root.gameObject);
+    }
+    else
+    {
+        Destroy(gameObject);
+        return;
+    }
         
         // Set up audio
         if (collectSound != null)

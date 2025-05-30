@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 8f93c9eeba9ac894c96cbfbbf5c605e8
+guid: 6e8ba87ac0f45164aa7bdf16332f84c6
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1283229902073639226
     second: Branch v1_0
-  - first:
-      213: 9208504061066232161
-    second: Branch v1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,8 +105,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 166
-        height: 88
+        width: 433
+        height: 746
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,28 +117,6 @@ TextureImporter:
       bones: []
       spriteID: 6cecdb1f33d013ee0800000000000000
       internalID: -1283229902073639226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Branch v1_1
-      rect:
-        serializedVersion: 2
-        x: 195
-        y: 46
-        width: 116
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1614890a7ad2bcf70800000000000000
-      internalID: 9208504061066232161
       vertices: []
       indices: 
       edges: []
@@ -161,7 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Branch v1_0: -1283229902073639226
-      Branch v1_1: 9208504061066232161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

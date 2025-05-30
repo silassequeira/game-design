@@ -65,18 +65,26 @@ public void StartGame()
 {
     Debug.Log("GameManager: Starting game...");
     
-    // Check if we should play intro cutscene
-    if (IntroductoryCutscene.Instance != null)
+    // Set state to Loading during cutscenes
+    currentGameState = GameState.Loading;
+    
+    // Check if we have a cutscene sequence to play
+    if (CutsceneManager.Instance != null)
     {
-        // Start with cutscene (it will transition to Playing state when done)
+        // Start cutscene sequence (it will transition to Playing when done)
+        CutsceneManager.Instance.StartGameSequence();
+    }
+    else if (IntroductoryCutscene.Instance != null)
+    {
+        // Fallback to just the intro cutscene if no manager
         IntroductoryCutscene.Instance.StartIntroCutscene();
     }
     else
     {
-        // No cutscene available, directly set state to Playing
+        // No cutscenes available, directly set state to Playing
         currentGameState = GameState.Playing;
         CurrentLevel = 1;
-        Debug.Log("GameManager: Game state set to Playing");
+        Debug.Log("GameManager: Game state set to Playing (no cutscenes)");
     }
 }
     

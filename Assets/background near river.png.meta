@@ -1,28 +1,10 @@
 fileFormatVersion: 2
-guid: 1191c9fcdee37644a809d6a1cb6053eb
+guid: 2b1b5fc79e077da49ab0cef1e4b43650
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -2513619710895359892
     second: background near river_0
-  - first:
-      213: 2749608259667187990
-    second: background near river_1
-  - first:
-      213: 5343551434639777445
-    second: background near river_2
-  - first:
-      213: 591893966831598452
-    second: background near river_3
-  - first:
-      213: -2269309938002221404
-    second: background near river_4
-  - first:
-      213: -7620330262055938200
-    second: background near river_5
-  - first:
-      213: -5371361762221911240
-    second: background near river_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -123,8 +105,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 568
-        height: 257
+        width: 2311
+        height: 380
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,138 +117,6 @@ TextureImporter:
       bones: []
       spriteID: c6879afc034dd1dd0800000000000000
       internalID: -2513619710895359892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_1
-      rect:
-        serializedVersion: 2
-        x: 617
-        y: 102
-        width: 69
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 61951f4e422982620800000000000000
-      internalID: 2749608259667187990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_2
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 112
-        width: 20
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ae9bbce7bb182a40800000000000000
-      internalID: 5343551434639777445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_3
-      rect:
-        serializedVersion: 2
-        x: 692
-        y: 110
-        width: 23
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47bb1b54d64d63800800000000000000
-      internalID: 591893966831598452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_4
-      rect:
-        serializedVersion: 2
-        x: 710
-        y: 111
-        width: 50
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a62d1c72aac180e0800000000000000
-      internalID: -2269309938002221404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_5
-      rect:
-        serializedVersion: 2
-        x: 599
-        y: 97
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8671ffa30062f3690800000000000000
-      internalID: -7620330262055938200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background near river_6
-      rect:
-        serializedVersion: 2
-        x: 609
-        y: 101
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 83395aa9fe61575b0800000000000000
-      internalID: -5371361762221911240
       vertices: []
       indices: 
       edges: []
@@ -284,14 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      background near river_0: -2513619710895359892
-      background near river_1: 2749608259667187990
-      background near river_2: 5343551434639777445
-      background near river_3: 591893966831598452
-      background near river_4: -2269309938002221404
-      background near river_5: -7620330262055938200
-      background near river_6: -5371361762221911240
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
