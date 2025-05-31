@@ -6,14 +6,14 @@ public class SpriteDisabler : MonoBehaviour
     public float xThreshold = 2f;
     public float yThreshold = 2f; // Add a vertical threshold
 
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     public Animator animator;
     public bool hasDisappeared = false;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>(); // Get Animator if attached
+        animator = GetComponent<Animator>();
     }
 
     void Update()
