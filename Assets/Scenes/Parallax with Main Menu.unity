@@ -24922,7 +24922,7 @@ MonoBehaviour:
   playerWalkSpeed: 3
   skipCutsceneWithInput: 1
   playerMovement: {fileID: 0}
-  playerAnimator: {fileID: 2132953241}
+  playerAnimator: {fileID: 0}
 --- !u!4 &856735371
 Transform:
   m_ObjectHideFlags: 0
@@ -50804,7 +50804,7 @@ SpriteRenderer:
   m_SortingLayerID: -1633110725
   m_SortingLayer: 6
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 502fc83145a64fc4fb0feb827a99a2b2, type: 3}
+  m_Sprite: {fileID: 4315286674223567315, guid: ad6d96f81904c364c9c991af84fd3342, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -50824,7 +50824,7 @@ Transform:
   m_GameObject: {fileID: 2132953237}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.240002, y: 6.84, z: 0}
+  m_LocalPosition: {x: -17.17, y: 7.44, z: 0}
   m_LocalScale: {x: 0.076142505, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -50924,6 +50924,9 @@ MonoBehaviour:
     speedBuildupDelay: 2
     speedLossRate: 4.5
     resetSpeedOnJump: 1
+    enableDoubleTapSprint: 1
+    doubleTapTimeWindow: 0.3
+    inputLossThreshold: 0.15
   audioSystem:
     jumpSound: {fileID: 8300000, guid: 3580b94a5c2ee7d4f8e3e3b00f019e79, type: 3}
     doubleJumpSound: {fileID: 0}

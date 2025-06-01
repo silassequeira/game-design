@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite newSprite;
 
     // Core components
+    private IPlayerInput inputSystem;
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spr;
     private AudioSource audioSource;
+    private CameraFollow cameraFollow;
 
     // Input
     private float horizontalInput;
@@ -29,8 +31,16 @@ public class PlayerMovement : MonoBehaviour
     // State
     private bool isFacingRight = true;
     private bool spriteChanged = false;
-    private CameraFollow cameraFollow;
     private float lastVerticalVelocity; // Track previous velocity for landing detection
+
+private void Awake()
+{
+    // Make sure this is properly set
+    inputSystem = new DefaultPlayerInput();
+    
+    // Debug verification
+    Debug.Log($"PlayerMovement: Initialized with {inputSystem.GetType().Name}");
+}
 
     private void Start()
     {
@@ -45,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         groundDetection.Initialize(transform.Find("GroundCheck"));
         visualEffects.Initialize(this);
         visualEffects.EnsureParticlesFollowPlayer(transform);
+        speedMomentum.Initialize();
 
         jumpSystem.OnJump += () =>
         {
@@ -119,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         // Sync particle positions
         visualEffects.SyncParticlesToPlayer(transform);
 
-        HandleInput();
+        ReadInput();
         HandleJumping();
         HandleSpeedMomentum();
         UpdateAnimations();
@@ -140,32 +151,22 @@ public class PlayerMovement : MonoBehaviour
         visualEffects.UpdateShadow(transform);
 
         visualEffects.UpdateRunningParticles(
-    speedMomentum.HasReachedMaxSpeed,
-    isFacingRight
-);
+            speedMomentum.HasReachedMaxSpeed,
+            isFacingRight
+        );
     }
 
-    private void HandleInput()
+    private void ReadInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        // Track if jump button was just pressed this frame
-        jumpInput = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W);
+    //Debug.Log($"Reading input from {inputSystem?.GetType().Name}, value: {inputSystem?.GetHorizontalInput()}");
 
-        // Track if jump button is being held
-        jumpInputHeld = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W);
-
-        // Track when jump is released (important for double jump)
-        if (!jumpInputHeld && !jumpInputReleasedSinceLastJump)
-        {
-            jumpInputReleasedSinceLastJump = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetTrigger("Duck");
-        }
+        horizontalInput = inputSystem.GetHorizontalInput();
+        jumpInput = inputSystem.GetJumpInputDown();
+        jumpInputHeld = inputSystem.GetJumpInputHeld();
+   
     }
+
 
     private void HandleJumping()
     {
@@ -185,9 +186,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F2))
         {
             Debug.Log(jumpSystem.GetDebugStatus());
-
-            // Also verify double jump is enabled
-            //Debug.Log($"Double jump is {(jumpSystem.IsDoubleJumpEnabled ? "enabled" : "disabled")}");
         }
 
         // Debug: Force reset jump system when F3 key is pressed
@@ -276,6 +274,28 @@ public class PlayerMovement : MonoBehaviour
         groundDetection.DrawGizmos();
     }
 
+public IPlayerInput GetInputSystem()
+{
+    if (inputSystem == null)
+    {
+        Debug.LogWarning("Input system is null, creating new DefaultPlayerInput");
+        inputSystem = new DefaultPlayerInput();
+    }
+    return inputSystem;
+}
+
+public void SetInputSystem(IPlayerInput newInputSystem)
+{
+    if (newInputSystem == null)
+    {
+        Debug.LogError("Attempted to set null input system!");
+        return;
+    }
+    
+    inputSystem = newInputSystem;
+    Debug.Log($"PlayerMovement: Input system set to {newInputSystem.GetType().Name}");
+}
+
     // Public API - Getters
     public bool GetIsGrounded() => groundDetection.IsGrounded;
     public float GetHorizontalVelocity() => rb.linearVelocity.x;
@@ -315,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
         audioSystem.PlayJumpSound(false);
         visualEffects.PlayJumpParticles(false, isFacingRight);
     }
-
+    
     public MovementSystem GetMovementSystem() => movementSystem;
     public SpeedMomentumSystem GetSpeedMomentumSystem() => speedMomentum;
     public JumpSystem GetJumpSystem() => jumpSystem;
@@ -330,4 +350,23 @@ public class PlayerMovement : MonoBehaviour
     public void SetSpeedMomentumSettings(float initial, float max) => speedMomentum.SetSpeedSettings(initial, max);
     public void SetMaxJumpDuration(float duration) => jumpSystem.SetMaxJumpDuration(duration);
     public void SetJumpInputCooldown(float cooldown) => jumpSystem.SetJumpInputCooldown(cooldown);
+}
+
+// Default input implementation that uses Unity's Input system
+public class DefaultPlayerInput : IPlayerInput
+{
+    public float GetHorizontalInput()
+    {
+        return Input.GetAxisRaw("Horizontal");
+    }
+    
+    public bool GetJumpInputDown()
+    {
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+    }
+    
+    public bool GetJumpInputHeld()
+    {
+        return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+    }
 }
