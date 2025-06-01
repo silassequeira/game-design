@@ -12,7 +12,7 @@ public class JumpSystem
     [SerializeField] private float maxJumpDuration = 0.3f;
     [SerializeField] private float jumpCutVelocityThreshold = 3f;
     [SerializeField] private float jumpControlForce = 5f;
-    [SerializeField] private float jumpInputCooldown = 0.02f; // DRASTICALLY REDUCED for responsive double jumps
+    [SerializeField] private float jumpInputCooldown = 0.02f; 
     
     [Header("Double Jump Settings")]
     [SerializeField] private bool enableDoubleJump = false;
@@ -240,6 +240,11 @@ public class JumpSystem
                $"CanDoubleJump: {CanDoubleJump}, JumpInputTimer: {jumpInputTimer:F2}, " +
                $"InputReleased: {jumpInputReleased}, LastRejection: {LastJumpRejectionReason}";
     }
+
+    public void SetJumpInputCooldown(float cooldown)
+{
+    jumpInputCooldown = Mathf.Max(0, cooldown);  // Ensure it's not negative
+}
     
     // Force a reset of the jump system (for testing)
     public void ResetJumpSystem()

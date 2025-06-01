@@ -17,9 +17,9 @@ public class PlayerStateChanger : MonoBehaviour
     public float newJumpForce = 6.8f;
     public float newMaxJumpDuration = 0.18f;
     public float newDoubleJumpForce = 8f;
+    public float newJumpInputCooldown = 0.01f;
     
     [Header("Visual Effects")]
-    public Color doubleJumpParticleColor = Color.cyan;
     public float effectDuration = 2.0f;
     
     private SpriteRenderer spriteRenderer;
@@ -65,97 +65,100 @@ public class PlayerStateChanger : MonoBehaviour
         }
     }
     
-    private void ApplyTransformation()
-    {
-        // Change the sprite
-        if (newSprite != null)
-            spriteRenderer.sprite = newSprite;
-        
-        // Switch to a new Animator Controller
-        if (newAnimatorController != null)
-            animator.runtimeAnimatorController = newAnimatorController;
-        
-        // Update PlayerMovement variables using the new modular system
-        if (playerMovement != null)
-        {
-            // Debug state before changes
-            Debug.Log("Before transformation - Double jump enabled: " + 
-                      playerMovement.GetJumpSystem().IsDoubleJumpEnabled);
-            
-            // Update movement settings
-            playerMovement.SetMovementSpeed(newMoveSpeed);
-            playerMovement.SetMaxSpeed(newMaxSpeed);
-            
-            // Update speed momentum settings
-            playerMovement.SetSpeedMomentumSettings(newInitialMoveSpeed, newMaxMoveSpeed);
-            
-            // Update jump settings
-            playerMovement.SetJumpForce(newJumpForce);
-            playerMovement.SetMaxJumpDuration(newMaxJumpDuration);
-            
-            // Enable double jump ability - set this FIRST before changing force
-            playerMovement.SetDoubleJumpEnabled(true);
-            playerMovement.SetDoubleJumpForce(newDoubleJumpForce);
-            
-            // Debug state after changes
-            Debug.Log("After transformation - Double jump enabled: " + 
-                      playerMovement.GetJumpSystem().IsDoubleJumpEnabled);
-            
-            // Visual feedback for double jump ability gained
-            ShowDoubleJumpEffects();
-        }
-    }
-    
-    // Optional: Add visual/audio feedback when double jump is enabled
-private void ShowDoubleJumpEffects()
+private void ApplyTransformation()
 {
-    // Get the visual effects module
-    PlayerVisualEffects visualEffects = playerMovement.GetVisualEffects();
+    // Change the sprite
+    if (newSprite != null)
+        spriteRenderer.sprite = newSprite;
     
-    if (visualEffects != null)
+    // Switch to a new Animator Controller
+    if (newAnimatorController != null)
+        animator.runtimeAnimatorController = newAnimatorController;
+    
+    // Update PlayerMovement variables using the new modular system
+    if (playerMovement != null)
     {
-        // First try to play a special effect if available
-        if (!visualEffects.TryPlaySpecialEffect("DoubleJumpAcquired"))
+        // Debug state before changes
+        Debug.Log("Before transformation - Double jump enabled: " + 
+                  playerMovement.GetJumpSystem().IsDoubleJumpEnabled);
+        
+        // Get sprint state before changes
+        SpeedMomentumSystem speedSystem = playerMovement.GetSpeedMomentumSystem();
+        bool wasSprinting = speedSystem != null ? speedSystem.IsSprinting : false;
+        int sprintDirection = 0;
+        
+        if (wasSprinting)
         {
-            // If no special effect, use regular particles with custom color
-            visualEffects.PlayJumpParticles(true);  // Use double jump particles
-            visualEffects.SetParticleColor(doubleJumpParticleColor, effectDuration);
+            // Store sprint direction (approximate from input)
+            sprintDirection = Input.GetAxisRaw("Horizontal") > 0 ? 1 : -1;
         }
-    }
-    
-    // Get the audio system and play sound
-    PlayerAudioSystem audioSystem = playerMovement.GetAudioSystem();
-    if (audioSystem != null)
-    {
-        AudioClip doubleJumpSound = audioSystem.GetDoubleJumpSound();
-        if (doubleJumpSound != null)
+        
+        // Update movement settings
+        playerMovement.SetMovementSpeed(newMoveSpeed);
+        playerMovement.SetMaxSpeed(newMaxSpeed);
+        
+        // Update speed momentum settings
+        playerMovement.SetSpeedMomentumSettings(newInitialMoveSpeed, newMaxMoveSpeed);
+        
+        // Restore sprint if needed
+        if (wasSprinting && speedSystem != null)
         {
-            audioSystem.PlaySound(doubleJumpSound, 1.5f);  // Play at higher volume for emphasis
+            speedSystem.ForceSprint(sprintDirection);
         }
+        
+        // Update jump settings
+        playerMovement.SetJumpForce(newJumpForce);
+        playerMovement.SetMaxJumpDuration(newMaxJumpDuration);
+        playerMovement.SetJumpInputCooldown(newJumpInputCooldown);
+        
+        // Enable double jump ability - set this FIRST before changing force
+        playerMovement.SetDoubleJumpEnabled(true);
+        playerMovement.SetDoubleJumpForce(newDoubleJumpForce);
+        
+        // Debug state after changes
+        Debug.Log("After transformation - Double jump enabled: " + 
+                  playerMovement.GetJumpSystem().IsDoubleJumpEnabled);
+        
+        // Visual feedback for double jump ability gained
+        ShowDoubleJumpEffects();
     }
-    
-    // Add screen shake effect
-    Camera mainCamera = Camera.main;
-    if (mainCamera != null)
-    {
-        CameraFollow cameraFollow = mainCamera.GetComponent<CameraFollow>();
-        if (cameraFollow != null)
-        {
-            cameraFollow.AddTrauma(0.3f);  // Add camera shake for feedback
-        }
-    }
-    
-    Debug.Log("Double Jump Ability Gained!");
 }
     
-    private System.Collections.IEnumerator ResetParticleColor(ParticleSystem particles, Color originalColor)
+    // Optional: Add visual/audio feedback when double jump is enabled
+    private void ShowDoubleJumpEffects()
     {
-        yield return new WaitForSeconds(effectDuration);
-        if (particles != null)
+        // Get the visual effects module
+        PlayerVisualEffects visualEffects = playerMovement.GetVisualEffects();
+        
+        if (visualEffects != null)
         {
-            ParticleSystem.MainModule main = particles.main;
-            main.startColor = originalColor;
+            // Only try to play the special effect without changing particle colors
+            visualEffects.TryPlaySpecialEffect("DoubleJumpAcquired");
         }
+        
+        // Get the audio system and play sound
+        PlayerAudioSystem audioSystem = playerMovement.GetAudioSystem();
+        if (audioSystem != null)
+        {
+            AudioClip doubleJumpSound = audioSystem.GetDoubleJumpSound();
+            if (doubleJumpSound != null)
+            {
+                audioSystem.PlaySound(doubleJumpSound, 1.5f);  // Play at higher volume for emphasis
+            }
+        }
+        
+        // Add screen shake effect
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            CameraFollow cameraFollow = mainCamera.GetComponent<CameraFollow>();
+            if (cameraFollow != null)
+            {
+                cameraFollow.AddTrauma(0.3f);  // Add camera shake for feedback
+            }
+        }
+        
+        Debug.Log("Double Jump Ability Gained!");
     }
     
     // Public methods for external use

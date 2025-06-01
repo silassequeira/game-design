@@ -103,12 +103,12 @@ TextureImporter:
       name: adam iddle-3_0
       rect:
         serializedVersion: 2
-        x: 265
-        y: 0
-        width: 192
-        height: 605
+        x: 264
+        y: 19
+        width: 182
+        height: 840
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e140d3f64cbcdca44ae9f2fc996066b2
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      adam iddle-3_0: -8192124998897607659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

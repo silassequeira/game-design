@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: JumpUp
+  m_Name: landingTogether
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 4461601171251524492, guid: c1e3e759ae44a0c4abec4bc11d59dbb3, type: 3}
+      value: {fileID: 21300000, guid: fa233eefad8b8cf40b6a3cc4f86b5cef, type: 3}
     - time: 0.083333336
-      value: {fileID: -8988130844737494799, guid: 085bdcee5c11e6b4598f63881e12eda8, type: 3}
-    - time: 0.16666667
-      value: {fileID: 6951103322468263663, guid: e4fa9cf8bfcadd449a82c270fe15b3d1, type: 3}
+      value: {fileID: 21300000, guid: be91031ade163e54f870f9a5ee1510c9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 4461601171251524492, guid: c1e3e759ae44a0c4abec4bc11d59dbb3, type: 3}
-    - {fileID: -8988130844737494799, guid: 085bdcee5c11e6b4598f63881e12eda8, type: 3}
-    - {fileID: 6951103322468263663, guid: e4fa9cf8bfcadd449a82c270fe15b3d1, type: 3}
+    - {fileID: 21300000, guid: fa233eefad8b8cf40b6a3cc4f86b5cef, type: 3}
+    - {fileID: 21300000, guid: be91031ade163e54f870f9a5ee1510c9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

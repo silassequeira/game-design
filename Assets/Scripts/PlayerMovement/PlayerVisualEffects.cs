@@ -11,17 +11,17 @@ public class PlayerVisualEffects
     [SerializeField] private ParticleSystem speedParticles;
     [SerializeField] private ParticleSystem specialEffectsParticles;
     
-    [Header("Shadow")]
-    [SerializeField] private GameObject shadowObject;
-    [SerializeField] private LayerMask groundLayer;
+[Header("Shadow")]
+[SerializeField] private GameObject shadowObject;
+[SerializeField] private LayerMask groundLayer;
+[SerializeField] private float shadowBaseScale = 1f;      // Base size multiplier
+[SerializeField] private float shadowMinScale = 0.5f;     // Minimum scale when far from ground
+[SerializeField] private float shadowScaleRate = 10f;     // How quickly shadow shrinks with height
+[SerializeField] private float shadowFadeRate = 20f;      // How quickly shadow fades with height
     
     [Header("Effect Settings")]
-    [SerializeField] private Color doubleJumpAcquiredColor = Color.cyan;
     [SerializeField] private float minFallSpeedForLandParticles = 2.0f;
     
-    // Store original colors for resetting later
-    private Color jumpParticlesOriginalColor;
-    private Color doubleJumpParticlesOriginalColor;
     private MonoBehaviour coroutineRunner;
     
     private bool isPlayingLandParticles = false;
@@ -32,22 +32,17 @@ public class PlayerVisualEffects
     {
         coroutineRunner = runner;
 
-        // Store original colors
+        // Configure jump particles
         if (jumpParticles != null)
         {
             var main = jumpParticles.main;
-            jumpParticlesOriginalColor = main.startColor.color;
-            
-            // Set simulation space to Local
             main.simulationSpace = ParticleSystemSimulationSpace.Local;
         }
 
+        // Configure double jump particles
         if (doubleJumpParticles != null)
         {
             var main = doubleJumpParticles.main;
-            doubleJumpParticlesOriginalColor = main.startColor.color;
-            
-            // Set simulation space to Local
             main.simulationSpace = ParticleSystemSimulationSpace.Local;
         }
         
@@ -83,19 +78,74 @@ public class PlayerVisualEffects
         ConfigureParticleSystem(specialEffectsParticles, playerTransform);
     }
     
+    public void UpdateParticleDirection(bool isFacingRight)
+    {
+        // Update jump particles direction
+        UpdateParticleSystemDirection(jumpParticles, isFacingRight);
+        
+        // Update double jump particles direction
+        UpdateParticleSystemDirection(doubleJumpParticles, isFacingRight);
+        
+        // Update land particles direction
+        UpdateParticleSystemDirection(landParticles, isFacingRight);
+        
+        // Add this line to update speed/running particles direction
+        UpdateParticleSystemDirection(speedParticles, isFacingRight);
+    }
+
+    private void UpdateParticleSystemDirection(ParticleSystem particleSystem, bool isFacingRight)
+    {
+        if (particleSystem == null) return;
+        
+        // Get the shape component which controls emission direction
+        var shape = particleSystem.shape;
+        
+        // For cone emitters (Edge type doesn't exist in Unity's enum)
+        if (shape.shapeType == ParticleSystemShapeType.Cone)
+        {
+            // Rotate emission direction based on facing
+            float rotationAngle = isFacingRight ? 0f : 180f;
+            shape.rotation = new Vector3(0, rotationAngle, 0);
+        }
+        
+        // For velocity-based particles, we modify the initial velocity
+        var velocity = particleSystem.velocityOverLifetime;
+        if (velocity.enabled)
+        {
+            // Flip X velocity multiplier based on direction
+            float xMultiplier = isFacingRight ? 1f : -1f;
+            
+            // Check if using constant or curve
+            if (velocity.x.mode == ParticleSystemCurveMode.Constant)
+            {
+                velocity.x = velocity.x.constant * xMultiplier;
+            }
+        }
+        
+        // For particles using a local velocity (relative to transform)
+        var main = particleSystem.main;
+        if (main.simulationSpace == ParticleSystemSimulationSpace.Local)
+        {
+            // Simply flip the particle transform's scale
+            Vector3 scale = particleSystem.transform.localScale;
+            scale.x = isFacingRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+            particleSystem.transform.localScale = scale;
+        }
+    }
+    
     private void ConfigureParticleSystem(ParticleSystem ps, Transform parentTransform, Vector3 localOffset = default)
     {
         if (ps == null || parentTransform == null) return;
-        
+
         // Ensure proper parenting
         if (ps.transform.parent != parentTransform)
         {
             ps.transform.SetParent(parentTransform);
         }
-        
+
         // Set correct local position
         ps.transform.localPosition = localOffset;
-        
+
         // Ensure simulation space is local
         var main = ps.main;
         if (main.simulationSpace != ParticleSystemSimulationSpace.Local)
@@ -139,7 +189,7 @@ public class PlayerVisualEffects
         }
     }
     
-    public void PlayJumpParticles(bool isDoubleJump = false)
+    public void PlayJumpParticles(bool isDoubleJump = false, bool facingRight = true)
     {
         // Skip land particles that might be playing
         if (isPlayingLandParticles && landParticles != null)
@@ -151,6 +201,9 @@ public class PlayerVisualEffects
         ParticleSystem particles = isDoubleJump ? doubleJumpParticles : jumpParticles;
         if (particles != null)
         {
+            // Update direction before playing
+            UpdateParticleSystemDirection(particles, facingRight);
+            
             // Make sure the particle system is properly positioned before playing
             if (particles.transform.parent != null)
             {
@@ -212,7 +265,7 @@ public class PlayerVisualEffects
         }
     }
     
-    public void StartSpeedParticles()
+    public void StartSpeedParticles(bool isFacingRight = true)
     {
         if (speedParticles != null && !speedParticles.isPlaying)
         {
@@ -220,6 +273,9 @@ public class PlayerVisualEffects
             var emission = speedParticles.emission;
             var originalRate = 15f; // Default rate, adjust if needed
             emission.rateOverTime = originalRate;
+            
+            // Update direction before playing
+            UpdateParticleSystemDirection(speedParticles, isFacingRight);
             
             speedParticles.Play();
         }
@@ -242,32 +298,60 @@ public class PlayerVisualEffects
         }
     }
     
-    public void UpdateShadow(Transform playerTransform)
+    public void UpdateRunningParticles(bool isRunning, bool isFacingRight)
     {
-        if (shadowObject == null) return;
+        if (speedParticles == null) return;
         
-        RaycastHit2D hit = Physics2D.Raycast(playerTransform.position, Vector2.down, 50f, groundLayer);
-        if (hit.collider != null)
+        if (isRunning)
         {
-            shadowObject.transform.position = new Vector3(
-                playerTransform.position.x, 
-                hit.point.y + 0.05f, 
-                shadowObject.transform.position.z
-            );
-            
-            float distance = Mathf.Abs(playerTransform.position.y - hit.point.y);
-            float scale = Mathf.Max(0.5f, 1f - (distance / 10f));
-            shadowObject.transform.localScale = new Vector3(scale, scale, 1f);
-            
-            SpriteRenderer shadowRenderer = shadowObject.GetComponent<SpriteRenderer>();
-            if (shadowRenderer != null)
+            // If not already playing, start it
+            if (!speedParticles.isPlaying)
             {
-                Color color = shadowRenderer.color;
-                color.a = Mathf.Max(0.1f, 0.5f - (distance / 20f));
-                shadowRenderer.color = color;
+                StartSpeedParticles(isFacingRight);
+            }
+            else
+            {
+                // Just update the direction for already playing particles
+                UpdateParticleSystemDirection(speedParticles, isFacingRight);
             }
         }
+        else if (speedParticles.isPlaying)
+        {
+            StopSpeedParticles();
+        }
     }
+    
+ public void UpdateShadow(Transform playerTransform)
+{
+    if (shadowObject == null) return;
+
+    RaycastHit2D hit = Physics2D.Raycast(playerTransform.position, Vector2.down, 50f, groundLayer);
+    if (hit.collider != null)
+    {
+        // Position shadow slightly above ground
+        shadowObject.transform.position = new Vector3(
+            playerTransform.position.x,
+            hit.point.y + 0.05f,
+            shadowObject.transform.position.z
+        );
+
+        // Calculate distance from player to ground
+        float distance = Mathf.Abs(playerTransform.position.y - hit.point.y);
+        
+        // Scale shadow based on distance (shrinks as height increases)
+        float scale = Mathf.Max(shadowMinScale, shadowBaseScale * (1f - (distance / shadowScaleRate)));
+        shadowObject.transform.localScale = new Vector3(scale, scale * 0.5f, 1f); // Make shadow oval-shaped
+        
+        // Fade shadow based on distance
+        SpriteRenderer shadowRenderer = shadowObject.GetComponent<SpriteRenderer>();
+        if (shadowRenderer != null)
+        {
+            Color color = shadowRenderer.color;
+            color.a = Mathf.Max(0.1f, 0.5f - (distance / shadowFadeRate));
+            shadowRenderer.color = color;
+        }
+    }
+}
     
     // Try to play a named special effect
     public bool TryPlaySpecialEffect(string effectName)
@@ -276,10 +360,6 @@ public class PlayerVisualEffects
         {
             if (effectName == "DoubleJumpAcquired")
             {
-                // Configure special effect for double jump acquisition
-                var main = specialEffectsParticles.main;
-                main.startColor = doubleJumpAcquiredColor;
-                
                 specialEffectsParticles.Play();
                 return true;
             }
@@ -287,50 +367,6 @@ public class PlayerVisualEffects
         
         // Fallback: return false if we couldn't play the effect
         return false;
-    }
-    
-    // Change particle color temporarily
-    public void SetParticleColor(Color color, float duration)
-    {
-        // Apply to jump particles if available
-        if (jumpParticles != null)
-        {
-            var main = jumpParticles.main;
-            main.startColor = color;
-        }
-        
-        // Apply to double jump particles if available
-        if (doubleJumpParticles != null)
-        {
-            var main = doubleJumpParticles.main;
-            main.startColor = color;
-        }
-        
-        // Reset after duration
-        if (coroutineRunner != null)
-        {
-            coroutineRunner.StartCoroutine(ResetParticleColorsAfterDelay(duration));
-        }
-    }
-    
-    // Coroutine to reset particle colors
-    private IEnumerator ResetParticleColorsAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        
-        // Reset jump particles color
-        if (jumpParticles != null)
-        {
-            var main = jumpParticles.main;
-            main.startColor = jumpParticlesOriginalColor;
-        }
-        
-        // Reset double jump particles color
-        if (doubleJumpParticles != null)
-        {
-            var main = doubleJumpParticles.main;
-            main.startColor = doubleJumpParticlesOriginalColor;
-        }
     }
 
     private IEnumerator ResetJumpParticleFlag(float delay)

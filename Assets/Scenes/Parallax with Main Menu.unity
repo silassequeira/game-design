@@ -1128,8 +1128,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -427390779
-  m_SortingLayer: 2
+  m_SortingLayerID: 2146930715
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -6333164244167378411, guid: dc5de3f126f4e5749a3682e9fbbbb4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1174,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &61042464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1300,29 +1300,29 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 4.4049997, y: -1.11}
-      - {x: 4.335, y: -1.0699999}
-      - {x: 4.115, y: -0.96999997}
-      - {x: 3.955, y: -0.89}
-      - {x: 3.625, y: -0.76}
-      - {x: 3.485, y: -0.71}
-      - {x: 3.335, y: -0.63}
+    - - {x: 4.4097037, y: -1.138448}
+      - {x: 4.320581, y: -1.041502}
+      - {x: 4.1636815, y: -0.9560364}
+      - {x: 3.950353, y: -0.8520775}
+      - {x: 3.6347985, y: -0.7458379}
+      - {x: 3.5045514, y: -0.69115037}
+      - {x: 3.3496618, y: -0.6158629}
       - {x: 2.925, y: -0.39}
       - {x: 2.7549999, y: -0.31}
-      - {x: 2.625, y: -0.21}
-      - {x: 2.445, y: -0.06}
-      - {x: 2.315, y: 0.03}
-      - {x: 2.085, y: 0.22999999}
-      - {x: 1.865, y: 0.42}
-      - {x: 1.645, y: 0.59999996}
-      - {x: 1.425, y: 0.77}
-      - {x: 1.165, y: 0.93}
-      - {x: 0.895, y: 1.09}
-      - {x: 0.765, y: 1.15}
-      - {x: 0.53499997, y: 1.22}
-      - {x: 0.355, y: 1.27}
-      - {x: 0.205, y: 1.31}
-      - {x: -0.305, y: 1.39}
+      - {x: 2.661054, y: -0.2633319}
+      - {x: 2.5714245, y: -0.20591617}
+      - {x: 2.3580716, y: -0.069429085}
+      - {x: 2.1602712, y: 0.03828384}
+      - {x: 1.969057, y: 0.17498915}
+      - {x: 1.7633425, y: 0.30885485}
+      - {x: 1.4832196, y: 0.5360424}
+      - {x: 1.210291, y: 0.74925625}
+      - {x: 0.99299103, y: 0.8703058}
+      - {x: 0.70481896, y: 1.0342637}
+      - {x: 0.4921847, y: 1.1728257}
+      - {x: 0.25166726, y: 1.2705278}
+      - {x: 0.041118532, y: 1.3523062}
+      - {x: -0.28052157, y: 1.4194957}
       - {x: -0.53499997, y: 1.4399999}
       - {x: -0.875, y: 1.4699999}
       - {x: -1.285, y: 1.49}
@@ -1332,15 +1332,15 @@ PolygonCollider2D:
       - {x: -2.5249999, y: 1.48}
       - {x: -2.5349998, y: 1.4699999}
       - {x: -3.0449998, y: 1.4699999}
-      - {x: -3.175, y: 1.4599999}
-      - {x: -3.185, y: 1.4499999}
-      - {x: -3.7949998, y: 1.4499999}
-      - {x: -3.8049998, y: 1.4599999}
-      - {x: -3.945, y: 1.48}
-      - {x: -4.1949997, y: 1.49}
-      - {x: -4.4649997, y: 1.4699999}
-      - {x: -4.525, y: 1.42}
-      - {x: -4.535, y: 1.4}
+      - {x: -3.1155066, y: 1.4728582}
+      - {x: -3.2577786, y: 1.4766178}
+      - {x: -3.342103, y: 1.4949524}
+      - {x: -3.626945, y: 1.5011046}
+      - {x: -3.8585784, y: 1.5163211}
+      - {x: -4.0870824, y: 1.5157077}
+      - {x: -4.384024, y: 1.4958452}
+      - {x: -4.5627484, y: 1.414941}
+      - {x: -4.6378207, y: 1.3217484}
       - {x: -4.535, y: 0.84999996}
       - {x: -4.475, y: 0.77}
       - {x: -4.375, y: 0.75}
@@ -1386,10 +1386,10 @@ PolygonCollider2D:
       - {x: 3.875, y: -1.3199999}
       - {x: 4.1549997, y: -1.48}
       - {x: 4.265, y: -1.5}
-      - {x: 4.455, y: -1.5}
-      - {x: 4.535, y: -1.4499999}
-      - {x: 4.535, y: -1.28}
-      - {x: 4.495, y: -1.1999999}
+      - {x: 4.4211583, y: -1.4666659}
+      - {x: 4.438103, y: -1.3926569}
+      - {x: 4.437629, y: -1.3079267}
+      - {x: 4.4220133, y: -1.2138392}
   m_UseDelaunayMesh: 0
 --- !u!212 &65385921
 SpriteRenderer:
@@ -1455,8 +1455,8 @@ Transform:
   m_GameObject: {fileID: 65385919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0026751906, w: 0.9999964}
-  m_LocalPosition: {x: -0.0498, y: 0.0092, z: 0}
-  m_LocalScale: {x: 0.98642594, y: 1.0113126, z: 1.0284404}
+  m_LocalPosition: {x: 0.0961, y: -0.05, z: 0}
+  m_LocalScale: {x: 1.0038035, y: 1.051311, z: 1.0284404}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1025034770}
@@ -2423,11 +2423,12 @@ Transform:
   m_GameObject: {fileID: 129277159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3884153, y: -0.02541561, z: 0}
-  m_LocalScale: {x: 0.96301997, y: 0.96301997, z: 0.96301997}
+  m_LocalPosition: {x: 27.78681, y: -1.52, z: 0}
+  m_LocalScale: {x: 0.9617014, y: 1.515634, z: 1.515634}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 223145120}
+  m_Children:
+  - {fileID: 223145120}
+  m_Father: {fileID: 1915138131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &136424178
 GameObject:
@@ -2510,7 +2511,7 @@ Transform:
   m_GameObject: {fileID: 136424178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6278825, y: 1.6400001, z: 0}
+  m_LocalPosition: {x: -7.510565, y: 1.6400001, z: 0}
   m_LocalScale: {x: 0.74911535, y: 1.1806, z: 1.1806}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2812,7 +2813,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.52
+  orthographic size: 4.56
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2855,6 +2856,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d9d64c971ca384c8f8df9abd7c6bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &146208671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146208672}
+  - component: {fileID: 146208673}
+  m_Layer: 0
+  m_Name: background cave2 1_0 FOW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &146208672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146208671}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.808815, y: 1.6862, z: 0}
+  m_LocalScale: {x: 1.3036568, y: 2.1124918, z: 2.0545533}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1915138131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &146208673
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146208671}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1633110725
+  m_SortingLayer: 6
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -357379952826706443, guid: 3fe2e0011db8b1f42959f0f07449c018, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 9, y: 3.79}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &146976222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,8 +3024,8 @@ Transform:
   m_GameObject: {fileID: 146976222}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.325285, y: 0.41563, z: 0}
-  m_LocalScale: {x: 0.6164538, y: 0.7703415, z: 1}
+  m_LocalPosition: {x: -0.306686, y: 0.41563, z: 0}
+  m_LocalScale: {x: 0.6536525, y: 0.7703415, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 195563804}
@@ -3023,7 +3111,7 @@ Transform:
   m_GameObject: {fileID: 147937548}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.455303, y: 2.02, z: 0}
+  m_LocalPosition: {x: -9.337986, y: 2.02, z: 0}
   m_LocalScale: {x: 0.6345208, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3089,7 +3177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2146930715
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3530410719663052626, guid: 8cc84003fea0c4f46b9db060b6794d83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3176,7 +3264,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 925357077
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -668808434789974583, guid: e2b4612bb9f72d0428d858227d71fed9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -3197,7 +3285,7 @@ Transform:
   m_GameObject: {fileID: 176947569}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.566494, y: -0.4499998, z: 0}
+  m_LocalPosition: {x: 39.36, y: -0.4499998, z: 0}
   m_LocalScale: {x: 0.7789387, y: 1.2276015, z: 1.2276015}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3403,7 +3491,7 @@ Transform:
   m_GameObject: {fileID: 194476700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.806267, y: 2.4954, z: 0}
+  m_LocalPosition: {x: -11.68895, y: 2.4954, z: 0}
   m_LocalScale: {x: 1.1507998, y: 1.8136517, z: 1.8136517}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3469,7 +3557,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1633110725
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.0008899956, g: 0.01071554, b: 0.03773582, a: 1}
   m_FlipX: 0
@@ -3660,10 +3748,10 @@ PolygonCollider2D:
       - {x: 0.089999996, y: 0.28}
       - {x: -0.12, y: 0.38}
       - {x: -0.16, y: 0.39}
-      - {x: -0.58, y: 0.39}
-      - {x: -0.69, y: 0.38}
-      - {x: -0.76, y: 0.32}
-      - {x: -0.84, y: 0.22}
+      - {x: -0.45630822, y: 0.4355384}
+      - {x: -0.6652601, y: 0.4209846}
+      - {x: -0.7797893, y: 0.38830808}
+      - {x: -0.86473733, y: 0.2564308}
       - {x: -0.84, y: -0.24}
       - {x: -0.78, y: -0.31}
       - {x: -0.66999996, y: -0.35999998}
@@ -3737,12 +3825,11 @@ Transform:
   m_GameObject: {fileID: 223145117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.398926, y: -1.48, z: 0}
-  m_LocalScale: {x: 0.9986307, y: 1.5738344, z: 1.5738344}
+  m_LocalPosition: {x: 0.0574, y: -0.0133, z: 0}
+  m_LocalScale: {x: 0.9659672, y: 1.049511, z: 1.0384}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 129277161}
-  m_Father: {fileID: 1915138131}
+  m_Children: []
+  m_Father: {fileID: 129277161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232045791
 GameObject:
@@ -3787,7 +3874,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1140902973}
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3805,8 +3892,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1633110725
-  m_SortingLayer: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -3827,8 +3914,8 @@ ParticleSystemRenderer:
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
-  m_VertexStreams: 00010304
+  m_UseCustomVertexStreams: 1
+  m_VertexStreams: 000304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
@@ -3857,7 +3944,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -3913,7 +4000,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -3923,7 +4010,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 1.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4028,39 +4115,39 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 0, g: 1, b: 1, a: 0.8}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.7180629, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0, g: 1, b: 1, a: 0}
+        key3: {r: 0, g: 1, b: 1, a: 0}
+        key4: {r: 0, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
+        ctime0: 193
+        ctime1: 21928
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 45875
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_ColorSpace: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4094,7 +4181,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.47
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4410,8 +4497,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
-    maxNumParticles: 100
+    gravitySource: 1
+    maxNumParticles: 184
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4787,7 +4874,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 40
+        scalar: 77.9
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -5173,7 +5260,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.05899334, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -5197,8 +5284,8 @@ ParticleSystem:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_Mode: 0
-        m_ColorSpace: -1
+        m_Mode: 2
+        m_ColorSpace: 0
         m_NumColorKeys: 3
         m_NumAlphaKeys: 3
       minGradient:
@@ -6218,7 +6305,7 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
@@ -6550,7 +6637,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -7090,7 +7177,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -7253,7 +7340,7 @@ ParticleSystem:
     range: {x: 0, y: 1}
     separateAxes: 0
   RotationBySpeedModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -7424,34 +7511,34 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.90713406, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 32768
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 45875
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_ColorSpace: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7482,7 +7569,7 @@ ParticleSystem:
         m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-    range: {x: 0, y: 1}
+    range: {x: 2.41, y: 0.36}
   CollisionModule:
     enabled: 0
     serializedVersion: 4
@@ -7805,7 +7892,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.42
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7855,17 +7942,17 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.6
     textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureScale: {x: 1.42, y: 1}
     ribbonCount: 1
-    shadowBias: 0.5
+    shadowBias: 1.53
     worldSpace: 0
     dieWithParticles: 1
-    sizeAffectsWidth: 1
-    sizeAffectsLifetime: 0
+    sizeAffectsWidth: 0
+    sizeAffectsLifetime: 1
     inheritParticleColor: 1
-    generateLightingData: 0
+    generateLightingData: 1
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 0
     colorOverLifetime:
@@ -7936,7 +8023,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.79
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8631,8 +8718,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.78847, y: -19.500002, z: 0}
-  m_LocalScale: {x: 8.333333, y: 8.333334, z: 8.333334}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.03, y: 5.03, z: 5.03}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2132953243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9033,6 +9120,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &280426875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280426877}
+  - component: {fileID: 280426876}
+  m_Layer: 0
+  m_Name: PlayerShadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &280426876
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280426875}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1633110725
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7304630703884719651, guid: 754d49b0f1bc42046bf61ad4761f84b0, type: 3}
+  m_Color: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 0.2}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.31, y: 0.28}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &280426877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280426875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67, y: -4.02, z: 0}
+  m_LocalScale: {x: 8.217601, y: 2.35, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2132953243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302001415
 GameObject:
   m_ObjectHideFlags: 0
@@ -9100,7 +9274,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.12
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -9136,8 +9310,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302001415}
   serializedVersion: 8
-  lengthInSec: 1
-  simulationSpeed: 1
+  lengthInSec: 1.3
+  simulationSpeed: 0.8
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9264,7 +9438,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1.23
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9318,7 +9492,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.5, b: 0.2, a: 0.6}
+      maxColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.6}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9699,7 +9873,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 3
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -9765,9 +9939,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: -0.21, y: -1.03, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.1, y: 0.5, z: 1}
+    m_Scale: {x: 0.74, y: -0.35, z: 0.57}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -9842,8 +10016,8 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
-    sphericalDirectionAmount: 0
+    randomDirectionAmount: 0.35
+    sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
       value: 1
@@ -12320,7 +12494,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -13861,8 +14035,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.78847, y: -19.500002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.6, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2132953243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14085,7 +14259,7 @@ Transform:
   m_GameObject: {fileID: 334788867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.41, y: 19.543694, z: 0}
+  m_LocalPosition: {x: -7.2926826, y: 19.543694, z: 0}
   m_LocalScale: {x: 1.1754905, y: 1.8525641, z: 1.8525641}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14477,6 +14651,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1081868933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &378952379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378952380}
+  - component: {fileID: 378952381}
+  m_Layer: 0
+  m_Name: background super mega far away_0 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378952380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378952379}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 199.19, y: 5.27, z: 0}
+  m_LocalScale: {x: 1.6071517, y: 2.719001, z: 2.1423357}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1585630374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &378952381
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378952379}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 6815076854923234602, guid: bdd91fc5757ad874ea8619f40863c6ac, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 94.04, y: 14.372324}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &379351278
 GameObject:
   m_ObjectHideFlags: 0
@@ -14544,7 +14805,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.3
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -14580,7 +14841,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379351278}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -14655,7 +14916,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14762,7 +15023,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.21808977, g: 0.3962264, b: 0.09531861, a: 0.8}
+      maxColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0.45490196}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -15143,14 +15404,14 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 50
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -15207,10 +15468,10 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.16
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: -90}
+    m_Position: {x: -0.91, y: -0.19, z: 0}
+    m_Rotation: {x: 0.43, y: 0.3, z: 180}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -15278,7 +15539,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -15286,11 +15547,11 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 0.5
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 0.33
       mode: 0
       spread: 0
       speed:
@@ -15347,7 +15608,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 120
+      value: 90
       mode: 0
       spread: 0
       speed:
@@ -17822,7 +18083,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -19363,8 +19624,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.78847, y: -19.500002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2132953243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19585,6 +19846,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eve: {fileID: 1182112749}
+  fogObjects:
+  - {fileID: 1969710737}
+  - {fileID: 146208671}
+  revealType: 2
+  fadeSpeed: 2
   targetPosition: {x: 41.71, y: 1.57, z: 0}
   useLocalPosition: 1
   moveOnce: 1
@@ -19615,7 +19881,7 @@ Transform:
   m_GameObject: {fileID: 394391064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5763218, y: 5.069038, z: 0}
+  m_LocalPosition: {x: 0.6936393, y: 5.069038, z: 0}
   m_LocalScale: {x: 0.9703727, y: 1.5292999, z: 1.5292999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20801,7 +21067,7 @@ Transform:
   m_GameObject: {fileID: 446812199}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.009296724, w: 0.99995685}
-  m_LocalPosition: {x: 4.828132, y: 1.2897999, z: 0}
+  m_LocalPosition: {x: 2.9454496, y: 1.2897999, z: 0}
   m_LocalScale: {x: 0.79983157, y: 1.3072368, z: 1.3195}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20989,7 +21255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509181327}
   - component: {fileID: 509181326}
-  - component: {fileID: 509181325}
+  - component: {fileID: 509181328}
   m_Layer: 6
   m_Name: Cave Rockv4 1_0 (1)
   m_TagString: Untagged
@@ -20997,7 +21263,77 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &509181325
+--- !u!212 &509181326
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509181324}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1633110725
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -3597863785975547497, guid: 189a6d681170fc1459b0750af7e22277, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.47, y: 0.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &509181327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509181324}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.7768, y: -1.1523, z: 0}
+  m_LocalScale: {x: -1.1149, y: 2.380133, z: 1.7570744}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1915138131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &509181328
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21059,76 +21395,6 @@ PolygonCollider2D:
       - {x: 0.73499995, y: -0.24}
       - {x: 0.73499995, y: -0.089999996}
   m_UseDelaunayMesh: 0
---- !u!212 &509181326
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509181324}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1633110725
-  m_SortingLayer: 6
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3597863785975547497, guid: 189a6d681170fc1459b0750af7e22277, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.47, y: 0.92}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &509181327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509181324}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.7768, y: -1.1523, z: 0}
-  m_LocalScale: {x: 1.1149004, y: 2.380133, z: 1.7570744}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1915138131}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520647953
 GameObject:
   m_ObjectHideFlags: 0
@@ -21297,7 +21563,7 @@ Transform:
   m_GameObject: {fileID: 538149202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.988326, y: 2.5900002, z: 0}
+  m_LocalPosition: {x: -14.871009, y: 2.5900002, z: 0}
   m_LocalScale: {x: 1.1507998, y: 1.8136517, z: 1.8136517}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21361,9 +21627,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 2146930715
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.0008899956, g: 0.01071554, b: 0.03773582, a: 1}
   m_FlipX: 0
@@ -21384,8 +21650,8 @@ Transform:
   m_GameObject: {fileID: 539376200}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.424681, y: 0.02235, z: 0}
-  m_LocalScale: {x: 0.988188, y: 0.88613737, z: 1}
+  m_LocalPosition: {x: 1.467236, y: 0.02235, z: 0}
+  m_LocalScale: {x: 1.0732977, y: 0.88613737, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 195563804}
@@ -23165,7 +23431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2146930715
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7750501373259945500, guid: d1c8a8a4bf347dc4dbefd9e9df99412d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23756,7 +24022,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1633110725
   m_SortingLayer: 6
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -8884136884284067359, guid: 1810f718bb472fc4f870f8d4bd2a77dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23984,8 +24250,8 @@ Transform:
   m_GameObject: {fileID: 791865801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.55, y: 0.03, z: 0}
-  m_LocalScale: {x: 1.1948124, y: 2.1938896, z: 2.1938896}
+  m_LocalPosition: {x: 23.643, y: -0.21, z: 0}
+  m_LocalScale: {x: 2.4108107, y: 2.1938896, z: 2.1938896}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 65775869}
@@ -24033,7 +24299,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 925357077
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 5911766262482844226, guid: a6d36d0821b58124b9b735efb427ae56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -24301,7 +24567,7 @@ Transform:
   m_GameObject: {fileID: 849796800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.055526555, w: 0.99845725}
-  m_LocalPosition: {x: -4.516266, y: 1.168, z: 0}
+  m_LocalPosition: {x: -6.3989487, y: 1.168, z: 0}
   m_LocalScale: {x: 0.9369465, y: 0.6948316, z: 1.1241}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25113,11 +25379,11 @@ PolygonCollider2D:
       - {x: -4.705, y: -0.265}
       - {x: -4.9849997, y: -0.385}
       - {x: -5.1749997, y: -0.45499998}
-      - {x: -5.395, y: -0.565}
-      - {x: -5.595, y: -0.655}
-      - {x: -5.6949997, y: -0.675}
-      - {x: -6.015, y: -0.73499995}
-      - {x: -6.245, y: -0.79499996}
+      - {x: -5.539439, y: -0.53332275}
+      - {x: -5.7438264, y: -0.59913117}
+      - {x: -5.931611, y: -0.66085607}
+      - {x: -6.1014495, y: -0.7044258}
+      - {x: -6.3076434, y: -0.78416514}
       - {x: -6.3849998, y: -0.85499996}
       - {x: -6.455, y: -0.895}
       - {x: -6.535, y: -1.005}
@@ -26195,7 +26461,7 @@ Transform:
   m_GameObject: {fileID: 1008816346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.45024, y: 3.27, z: 0}
+  m_LocalPosition: {x: -12.332923, y: 3.27, z: 0}
   m_LocalScale: {x: 0.6345208, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26304,7 +26570,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015403316}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -26379,7 +26645,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -27002,7 +27268,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -27010,7 +27276,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -31087,7 +31353,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.78847, y: -19.500002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2132953243}
@@ -31347,8 +31613,8 @@ Transform:
   m_GameObject: {fileID: 1023698704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.2, y: 4.8, z: 0}
-  m_LocalScale: {x: 1.6071517, y: 2.5995102, z: 2.1423357}
+  m_LocalPosition: {x: 48.2, y: 5.4, z: 0}
+  m_LocalScale: {x: 1.6071517, y: 2.719001, z: 2.1423357}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585630374}
@@ -31500,7 +31766,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1633110725
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -821812485268616548, guid: 423bf9ef984f43145ab028f1bffba5e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -31982,7 +32248,7 @@ Transform:
   m_GameObject: {fileID: 1081868931}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.2573175, y: 5.48, z: 0}
+  m_LocalPosition: {x: -6.14, y: 5.48, z: 0}
   m_LocalScale: {x: 0.9081288, y: 1.5286635, z: 1.1241}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32689,7 +32955,7 @@ Transform:
   m_GameObject: {fileID: 1113566599}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.63451, y: 2.15, z: 0}
+  m_LocalPosition: {x: -13.517193, y: 2.15, z: 0}
   m_LocalScale: {x: 2.2990496, y: 2.4531822, z: 2.4531822}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32970,6 +33236,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1139393680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139393682}
+  - component: {fileID: 1139393681}
+  m_Layer: 0
+  m_Name: Square (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1139393681
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139393680}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 925357077
+  m_SortingLayer: 1
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 0.53333336, b: 0.6901961, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1139393682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139393680}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 94, y: 22.77, z: 0}
+  m_LocalScale: {x: 255.23755, y: 6.20315, z: 6.5685}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1140902973
 Material:
   serializedVersion: 8
@@ -33021,7 +33374,7 @@ Material:
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0
+    - _DistortionStrengthScaled: 0.1
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
@@ -33121,7 +33474,7 @@ Transform:
   m_GameObject: {fileID: 1145743310}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.8487053, y: 2.7, z: 0}
+  m_LocalPosition: {x: -9.731388, y: 2.7, z: 0}
   m_LocalScale: {x: 0.6345208, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33363,7 +33716,7 @@ Transform:
   m_GameObject: {fileID: 1154921119}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8245601, y: 3.94, z: 0}
+  m_LocalPosition: {x: -2.7072427, y: 3.94, z: 0}
   m_LocalScale: {x: 0.9150652, y: 1.4518334, z: 1.0906225}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34647,7 +35000,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 925357077
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -7214959032448868303, guid: b475d49540a7f19468b536507c71bf02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -37550,6 +37903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1023698706}
+  - {fileID: 378952380}
   m_Father: {fileID: 1471720775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1585630375
@@ -38133,7 +38487,7 @@ GameObject:
   - component: {fileID: 1610126466}
   - component: {fileID: 1610126465}
   - component: {fileID: 1610126467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rockv6 1_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38204,7 +38558,7 @@ Transform:
   m_GameObject: {fileID: 1610126463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.1887, y: 4.4598, z: 0}
+  m_LocalPosition: {x: -19.73, y: 4.52, z: 0}
   m_LocalScale: {x: 1.7982836, y: 2.8340812, z: 2.8340812}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40583,7 +40937,7 @@ Transform:
   m_GameObject: {fileID: 1718521354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.83788437, y: 0.81999993, z: 0}
+  m_LocalPosition: {x: -1.0447981, y: 0.81999993, z: 0}
   m_LocalScale: {x: 0.9809057, y: 1.5459, z: 1.5459}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41156,7 +41510,7 @@ Transform:
   m_GameObject: {fileID: 1766229797}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.56, y: 5.09, z: 0}
+  m_LocalPosition: {x: 0.6773174, y: 5.09, z: 0}
   m_LocalScale: {x: 0.9897801, y: 1.3548911, z: 1.3548911}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41544,7 +41898,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 68296491}
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41562,14 +41916,14 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1633110725
-  m_SortingLayer: 6
+  m_SortingLayerID: 925357077
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 5.21
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -41606,7 +41960,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1843258235}
   serializedVersion: 8
   lengthInSec: 0.3
-  simulationSpeed: 1
+  simulationSpeed: 1.08
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -41672,7 +42026,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 2
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -41680,7 +42034,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.65
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -41733,7 +42087,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 3.13
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -41785,13 +42139,13 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 0.93015456, b: 0.5613208, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0.8349056, b: 0.94691086, a: 1}
+        key1: {r: 0.997077, g: 0, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -41815,7 +42169,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -41851,7 +42205,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.54
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -42116,7 +42470,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.018325957
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -42166,9 +42520,9 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    randomizeRotationDirection: 0
-    gravitySource: 0
-    maxNumParticles: 100
+    randomizeRotationDirection: 0.42
+    gravitySource: 1
+    maxNumParticles: 199
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -42232,7 +42586,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.44
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -42305,17 +42659,17 @@ ParticleSystem:
     m_UseMeshColors: 1
     alignToDirection: 0
     m_Texture: {fileID: 0}
-    m_TextureClipChannel: 3
+    m_TextureClipChannel: 0
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
-    sphericalDirectionAmount: 0
-    randomPositionAmount: 0
+    randomDirectionAmount: 0.3
+    sphericalDirectionAmount: 0.77
+    randomPositionAmount: 0.52
     radius:
-      value: 0.2
+      value: 8.7
       mode: 0
       spread: 0
       speed:
@@ -42434,7 +42788,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -42544,7 +42898,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 25
+        scalar: 79
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -42598,7 +42952,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -42760,7 +43114,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -42870,7 +43224,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 0.57595867
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -42922,7 +43276,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -42930,34 +43284,34 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.8128414, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 23901
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 47031
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_ColorSpace: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -43975,7 +44329,7 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
@@ -44307,11 +44661,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.82
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -44468,16 +44822,16 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.65
     damping: 1
-    octaves: 1
-    octaveMultiplier: 0.5
-    octaveScale: 2
+    octaves: 4
+    octaveMultiplier: 0.71
+    octaveScale: 1.44
     quality: 1
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.18
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -44690,7 +45044,7 @@ ParticleSystem:
     positionAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.59
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -44743,7 +45097,7 @@ ParticleSystem:
     rotationAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.82
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -45562,7 +45916,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -45612,54 +45966,54 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.01
     textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureScale: {x: 0, y: 0}
     ribbonCount: 1
-    shadowBias: 0.5
-    worldSpace: 0
+    shadowBias: 0
+    worldSpace: 1
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 0
     colorOverLifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8867924, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0.32911396, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0.8929739, g: 0, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 32768
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 45875
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_ColorSpace: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -45745,60 +46099,60 @@ ParticleSystem:
         m_RotationOrder: 4
     colorOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.6766882, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 0, b: 0.7719126, a: 1}
+        key2: {r: 0, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime0: 8481
+        ctime1: 32575
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 45875
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_ColorSpace: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0, g: 1, b: 1, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 32768
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 45875
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -45806,8 +46160,8 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_ColorSpace: -1
-        m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
   CustomDataModule:
     enabled: 0
     mode0: 0
@@ -46388,7 +46742,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.78847, y: -19.500002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2132953243}
@@ -47088,7 +47442,7 @@ Transform:
   m_GameObject: {fileID: 1894497106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.8826826, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47244,7 +47598,7 @@ Transform:
   - {fileID: 422065845}
   - {fileID: 22999111}
   - {fileID: 1025034770}
-  - {fileID: 223145120}
+  - {fileID: 129277161}
   - {fileID: 549821302}
   - {fileID: 138377354}
   - {fileID: 2089722313}
@@ -47260,7 +47614,9 @@ Transform:
   - {fileID: 2081488688}
   - {fileID: 509181327}
   - {fileID: 1725875197}
+  - {fileID: 146208672}
   - {fileID: 205729512}
+  - {fileID: 1969710738}
   - {fileID: 1685944567}
   - {fileID: 1677825259}
   - {fileID: 99510973}
@@ -47963,6 +48319,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 195563804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1969710737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969710738}
+  - component: {fileID: 1969710739}
+  m_Layer: 0
+  m_Name: background cave FOW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1969710738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969710737}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.62, y: 1.9426, z: 0}
+  m_LocalScale: {x: 1.4332582, y: 2.2624195, z: 2.1623342}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1915138131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1969710739
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969710737}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1633110725
+  m_SortingLayer: 6
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 3812520724680972821, guid: 5a757eec3670076498db18cc9b4261f4, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 8.89, y: 4.27}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1980553981
 GameObject:
   m_ObjectHideFlags: 0
@@ -48445,7 +48888,7 @@ Transform:
   m_GameObject: {fileID: 2048341108}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.89, y: 2.45, z: 0}
+  m_LocalPosition: {x: 2.22, y: 2.45, z: 0}
   m_LocalScale: {x: 0.6252088, y: 0.9853242, z: 0.9853242}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49019,9 +49462,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: 2146930715
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.0008899956, g: 0.01071554, b: 0.03773582, a: 1}
   m_FlipX: 0
@@ -49042,8 +49485,8 @@ Transform:
   m_GameObject: {fileID: 2086201967}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.322565, y: -0.29459, z: 0}
-  m_LocalScale: {x: 1.1786944, y: 0.9119179, z: 1}
+  m_LocalPosition: {x: 1.366622, y: -0.29459, z: 0}
+  m_LocalScale: {x: 1.2668076, y: 0.9119179, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 195563804}
@@ -49670,7 +50113,7 @@ Transform:
   m_GameObject: {fileID: 2114411530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.451979, y: 1.8171, z: 0}
+  m_LocalPosition: {x: -4.3346615, y: 1.8171, z: 0}
   m_LocalScale: {x: 0.84179515, y: 1.3266628, z: 1.3266628}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50228,12 +50671,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132953243}
-  - component: {fileID: 2132953242}
-  - component: {fileID: 2132953241}
-  - component: {fileID: 2132953239}
-  - component: {fileID: 2132953238}
-  - component: {fileID: 2132953244}
   - component: {fileID: 2132953245}
+  - component: {fileID: 2132953238}
+  - component: {fileID: 2132953239}
+  - component: {fileID: 2132953244}
+  - component: {fileID: 2132953241}
+  - component: {fileID: 2132953242}
   - component: {fileID: 2132953246}
   m_Layer: 0
   m_Name: Player
@@ -50265,7 +50708,7 @@ MonoBehaviour:
   newJumpForce: 6.8
   newMaxJumpDuration: 0.18
   newDoubleJumpForce: 8
-  doubleJumpParticleColor: {r: 0, g: 1, b: 1, a: 1}
+  newJumpInputCooldown: 0.01
   effectDuration: 2
   playerMovement: {fileID: 2132953245}
 --- !u!50 &2132953239
@@ -50391,6 +50834,7 @@ Transform:
   - {fileID: 302001418}
   - {fileID: 232045794}
   - {fileID: 386653117}
+  - {fileID: 280426877}
   m_Father: {fileID: 1915138131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2132953244
@@ -50509,31 +50953,114 @@ MonoBehaviour:
     landParticles: {fileID: 1015403318}
     speedParticles: {fileID: 302001417}
     specialEffectsParticles: {fileID: 232045793}
-    shadowObject: {fileID: 0}
+    shadowObject: {fileID: 280426875}
     groundLayer:
       serializedVersion: 2
       m_Bits: 64
-    doubleJumpAcquiredColor: {r: 0, g: 1, b: 1, a: 1}
+    shadowBaseScale: 9
+    shadowMinScale: 2
+    shadowScaleRate: 5
+    shadowFadeRate: 2
+    minFallSpeedForLandParticles: 2
   groundCheck: {fileID: 386653117}
   newSprite: {fileID: 21300000, guid: 502fc83145a64fc4fb0feb827a99a2b2, type: 3}
---- !u!114 &2132953246
-MonoBehaviour:
+--- !u!82 &2132953246
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132953237}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e6666a0131e754baa3b15514d09a32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpParticleSystem: {fileID: 379351280}
-  doubleJumpParticleSystem: {fileID: 1843258237}
-  landParticleSystem: {fileID: 1015403318}
-  speedParticleSystem: {fileID: 302001417}
-  specialEffectParticleSystem: {fileID: 232045793}
-  createMissingSystems: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -50545,3 +51072,4 @@ SceneRoots:
   - {fileID: 1126244220}
   - {fileID: 2087579251}
   - {fileID: 1092607385}
+  - {fileID: 1139393682}
