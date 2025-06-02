@@ -120,7 +120,7 @@ public class UserInterfaceSystem : MonoBehaviour
         // Check for any key press to start the game
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.TitleScreen && Input.anyKeyDown)
         {
-            Debug.Log("Any key pressed, starting game...");
+            //Debug.Log("Any key pressed, starting game...");
             OnStartGameClicked();
         }
     }
@@ -135,7 +135,7 @@ public class UserInterfaceSystem : MonoBehaviour
         if (SettingsButton != null) pauseMenuButtons.Add(SettingsButton);
         if (QuitButton != null) pauseMenuButtons.Add(QuitButton);
         
-        Debug.Log($"Pause menu buttons initialized. Count: {pauseMenuButtons.Count}");
+        //Debug.Log($"Pause menu buttons initialized. Count: {pauseMenuButtons.Count}");
         
         // Make sure we have buttons before trying to update colors
         if (pauseMenuButtons.Count > 0)
@@ -144,7 +144,7 @@ public class UserInterfaceSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No pause menu buttons were assigned in the Inspector!");
+            //Debug.LogError("No pause menu buttons were assigned in the Inspector!");
         }
     }
 
@@ -153,7 +153,7 @@ public class UserInterfaceSystem : MonoBehaviour
         // Check if we have any buttons to navigate
         if (pauseMenuButtons == null || pauseMenuButtons.Count == 0)
         {
-            Debug.LogWarning("No pause menu buttons available for navigation");
+            //Debug.LogWarning("No pause menu buttons available for navigation");
             return;
         }
         
@@ -187,7 +187,7 @@ public class UserInterfaceSystem : MonoBehaviour
 
     private void ToggleVolumeSlider()
     {
-        Debug.Log("Toggling volume slider");
+        //Debug.Log("Toggling volume slider");
         isVolumeSliderActive = !isVolumeSliderActive;
         
         if (VolumeSliderContainer != null)
@@ -201,19 +201,19 @@ public class UserInterfaceSystem : MonoBehaviour
                 if (VolumeSlider != null)
                 {
                     VolumeSlider.value = savedVolumeValue;
-                    Debug.Log($"Volume slider activated. Value: {savedVolumeValue}");
+                    //Debug.Log($"Volume slider activated. Value: {savedVolumeValue}");
                 }
             }
             else
             {
                 // Save volume value when hiding
                 SaveVolumeValue();
-                Debug.Log("Volume slider deactivated");
+                //Debug.Log("Volume slider deactivated");
             }
         }
         else
         {
-            Debug.LogError("VolumeSliderContainer is not assigned!");
+            //Debug.LogError("VolumeSliderContainer is not assigned!");
         }
     }
 
@@ -249,7 +249,7 @@ public class UserInterfaceSystem : MonoBehaviour
             savedVolumeValue = VolumeSlider.value;
             PlayerPrefs.SetFloat("VolumeValue", savedVolumeValue);
             PlayerPrefs.Save();
-            Debug.Log($"Volume saved: {savedVolumeValue}");
+            //Debug.Log($"Volume saved: {savedVolumeValue}");
         }
     }
 
@@ -385,7 +385,7 @@ public class UserInterfaceSystem : MonoBehaviour
                 }
                 isVolumeSliderActive = false;
                 
-                Debug.Log("Pause menu opened");
+                //Debug.Log("Pause menu opened");
             }
         }
         else if (GameManager.Instance.CurrentGameState == GameManager.GameState.Paused)
@@ -402,7 +402,7 @@ public class UserInterfaceSystem : MonoBehaviour
                 PauseMenu.SetActive(false);
                 GameManager.Instance.ResumeGame();
                 
-                Debug.Log("Pause menu closed");
+                //Debug.Log("Pause menu closed");
             }
         }
     }
@@ -424,7 +424,7 @@ public class UserInterfaceSystem : MonoBehaviour
     // Button handlers
     public void OnStartGameClicked()
     {
-        Debug.Log("UserInterfaceSystem: Start Game button clicked");
+        //Debug.Log("UserInterfaceSystem: Start Game button clicked");
         
         // Don't allow multiple clicks during transition
         if (isTransitioning) return;
@@ -450,19 +450,19 @@ public class UserInterfaceSystem : MonoBehaviour
 
     public void OnResumeClicked()
     {
-        Debug.Log("UserInterfaceSystem: Resume button clicked");
+        //Debug.Log("UserInterfaceSystem: Resume button clicked");
         TogglePauseMenu();
     }
 
     public void OnSettingsClicked()
     {
-        Debug.Log("UserInterfaceSystem: Settings button clicked");
+        //Debug.Log("UserInterfaceSystem: Settings button clicked");
         ToggleVolumeSlider();
     }
 
     public void OnQuitClicked()
     {
-        Debug.Log("UserInterfaceSystem: Quit button clicked");
+        //Debug.Log("UserInterfaceSystem: Quit button clicked");
         GameManager.Instance.QuitGame();
     }
 
@@ -474,11 +474,11 @@ public class UserInterfaceSystem : MonoBehaviour
             PauseMenu.SetActive(true);
             selectedButtonIndex = 0; // Reset to the first button
             UpdateButtonColors();
-            Debug.Log("Pause menu shown via ShowPauseMenu method");
+            //Debug.Log("Pause menu shown via ShowPauseMenu method");
         }
         else
         {
-            Debug.LogError("PauseMenu reference is null in ShowPauseMenu method");
+            //Debug.LogError("PauseMenu reference is null in ShowPauseMenu method");
         }
     }
     

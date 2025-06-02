@@ -17,7 +17,7 @@ public class JumpSystem
     [Header("Double Jump Settings")]
     [SerializeField] private bool enableDoubleJump = false;
     [SerializeField] private float doubleJumpForce = 10f;
-    [SerializeField] private bool requireButtonRelease = false; // NEW: Option to require button release
+    [SerializeField] private bool requireButtonRelease = false;
     
     [Header("Advanced Settings")]
     [SerializeField] private bool resetJumpOnHeadbutt = true;
@@ -32,11 +32,12 @@ public class JumpSystem
     private float jumpInputTimer = 0f;
     private int jumpCount = 0;
     private bool wasHeadbutting = false;
+    private bool wasGrounded = false; // Track previous ground state
     
     // Events
     public System.Action OnJump;
     public System.Action OnDoubleJump;
-    public System.Action OnLand;
+    public System.Action<Vector2> OnLand; // Modified to include landing position
     public System.Action OnHeadbutt;
     
     // Debug tracking
@@ -52,6 +53,7 @@ public class JumpSystem
     public float MaxJumpDuration => maxJumpDuration;
     public int MaxJumps => enableDoubleJump ? 2 : 1;
     public int RemainingJumps => MaxJumps - jumpCount;
+    public bool JustLanded { get; private set; }
     
     // Setters for external configuration
     public void SetJumpForce(float force) => jumpForce = force;
@@ -60,13 +62,15 @@ public class JumpSystem
     public void SetDoubleJumpEnabled(bool enabled) 
     {
         enableDoubleJump = enabled;
-        //Debug.Log($"Double jump set to {enabled}");
     }
     
     public void SetMaxJumpDuration(float duration) => maxJumpDuration = duration;
     
     public void UpdateTimers()
     {
+        // Reset just landed flag
+        JustLanded = false;
+        
         // Only decrease coyote time when not grounded
         if (coyoteTimeCounter > 0)
         {
@@ -85,14 +89,22 @@ public class JumpSystem
         }
     }
     
-    public void SetGrounded(bool grounded)
+    public void SetGrounded(bool grounded, Vector2 position)
     {
+        // Check for landing
+        JustLanded = grounded && !wasGrounded;
+        
         if (grounded)
         {
             // Only trigger land event if we were actually in the air and jumping
-            if (coyoteTimeCounter <= 0 && jumpCount > 0)
+            if (JustLanded && coyoteTimeCounter <= 0 && jumpCount > 0)
             {
-                OnLand?.Invoke();
+                // Provide position data to OnLand event for precise surface detection
+                OnLand?.Invoke(position);
+                
+                #if UNITY_EDITOR
+                Debug.Log($"Landing at position {position}");
+                #endif
             }
             
             coyoteTimeCounter = coyoteTime;
@@ -101,9 +113,16 @@ public class JumpSystem
             isJumping = false;
             jumpHoldTimer = 0f;
             jumpCount = 0;
-            
-            // Don't reset jumpInputTimer when landing, to prevent accidental jumps
         }
+        
+        // Update previous ground state
+        wasGrounded = grounded;
+    }
+    
+    // Overload for backwards compatibility
+    public void SetGrounded(bool grounded)
+    {
+        SetGrounded(grounded, Vector2.zero);
     }
     
     public void CheckHeadbutt(Rigidbody2D rb, bool hasHeadCollision)
@@ -189,9 +208,6 @@ public class JumpSystem
         jumpHoldTimer = 0f;
         jumpInputTimer = jumpInputCooldown;
         
-        // Logging for debugging
-        //Debug.Log($"Jump #{jumpCount} performed. IsDoubleJump: {isDoubleJump}, Force: {jumpPower}");
-        
         // Trigger appropriate event
         if (isDoubleJump)
         {
@@ -233,18 +249,10 @@ public class JumpSystem
         }
     }
     
-    // Debugging helper
-    public string GetDebugStatus()
-    {
-        return $"Jumps: {jumpCount}/{MaxJumps}, DoubleJumpEnabled: {enableDoubleJump}, " +
-               $"CanDoubleJump: {CanDoubleJump}, JumpInputTimer: {jumpInputTimer:F2}, " +
-               $"InputReleased: {jumpInputReleased}, LastRejection: {LastJumpRejectionReason}";
-    }
-
     public void SetJumpInputCooldown(float cooldown)
-{
-    jumpInputCooldown = Mathf.Max(0, cooldown);  // Ensure it's not negative
-}
+    {
+        jumpInputCooldown = Mathf.Max(0, cooldown);  // Ensure it's not negative
+    }
     
     // Force a reset of the jump system (for testing)
     public void ResetJumpSystem()
@@ -256,6 +264,14 @@ public class JumpSystem
         coyoteTimeCounter = 0;
         jumpBufferCounter = 0;
         jumpInputReleased = true;
-        //Debug.Log("Jump system reset");
+        JustLanded = false;
+    }
+    
+    // Debugging helper
+    public string GetDebugStatus()
+    {
+        return $"Jumps: {jumpCount}/{MaxJumps}, DoubleJumpEnabled: {enableDoubleJump}, " +
+               $"CanDoubleJump: {CanDoubleJump}, JumpInputTimer: {jumpInputTimer:F2}, " +
+               $"InputReleased: {jumpInputReleased}, LastRejection: {LastJumpRejectionReason}";
     }
 }

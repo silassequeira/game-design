@@ -55,7 +55,7 @@ public class CameraFollow : MonoBehaviour
             }
             else
             {
-                Debug.LogError("No target assigned to CameraFollow and no Player tag found!");
+                //Debug.LogError("No target assigned to CameraFollow and no Player tag found!");
             }
         }
 

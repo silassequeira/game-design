@@ -39,104 +39,152 @@ private void Awake()
     inputSystem = new DefaultPlayerInput();
     
     // Debug verification
-    Debug.Log($"PlayerMovement: Initialized with {inputSystem.GetType().Name}");
+    //Debug.Log($"PlayerMovement: Initialized with {inputSystem.GetType().Name}");
 }
 
-    private void Start()
+private void Start()
+{
+    rb = GetComponent<Rigidbody2D>();
+    anim = GetComponent<Animator>();
+    spr = GetComponent<SpriteRenderer>();
+    audioSource = GetComponent<AudioSource>();
+
+    audioSystem.Initialize(audioSource, this);
+
+    // Initialize systems
+    if (groundDetection == null)
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        spr = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
-
-        audioSystem.Initialize(audioSource, this);
-
-        // Initialize systems
+        groundDetection = new GroundDetection();
         groundDetection.Initialize(transform.Find("GroundCheck"));
-        visualEffects.Initialize(this);
-        visualEffects.EnsureParticlesFollowPlayer(transform);
-        speedMomentum.Initialize();
-
-        jumpSystem.OnJump += () =>
-        {
-            anim.SetTrigger("Jump");
-            audioSystem.PlayJumpSound(false);
-            visualEffects.PlayJumpParticles(false, isFacingRight);
-        };
-
-        jumpSystem.OnDoubleJump += () =>
-        {
-            anim.SetTrigger("DoubleJump");
-            audioSystem.PlayJumpSound(true);
-            visualEffects.PlayJumpParticles(true, isFacingRight);
-        };
-
-        // We'll still hook up the OnLand event for audio
-        jumpSystem.OnLand += () =>
-        {
-            audioSystem.PlayLandSound();
-        };
-
-        speedMomentum.OnSpeedBoost += () =>
-        {
-            audioSystem.PlaySpeedBoostSound();
-            if (cameraFollow != null) cameraFollow.AddTrauma(0.1f);
-        };
-
-        speedMomentum.OnMaxSpeedReached += () =>
-        {
-            visualEffects.EnhanceSpeedParticles();
-        };
-
-        // Get camera follow
-        Camera mainCamera = Camera.main;
-        if (mainCamera != null)
-        {
-            cameraFollow = mainCamera.GetComponent<CameraFollow>();
-        }
     }
+    visualEffects.Initialize(this);
+    visualEffects.EnsureParticlesFollowPlayer(transform);
+    speedMomentum.Initialize();
 
-    private void Update()
+    jumpSystem.OnJump += () =>
     {
-        // Store previous velocity for landing detection
-        lastVerticalVelocity = rb.linearVelocity.y;
+        anim.SetTrigger("Jump");
+        audioSystem.PlayJumpSound(false);
+        visualEffects.PlayJumpParticles(false, isFacingRight);
+    };
 
-        // Update ground detection
+    jumpSystem.OnDoubleJump += () =>
+    {
+        anim.SetTrigger("DoubleJump");
+        audioSystem.PlayJumpSound(true);
+        visualEffects.PlayJumpParticles(true, isFacingRight);
+    };
+
+    // FIXED: Added the position parameter to match the delegate signature
+    jumpSystem.OnLand += (landingPosition) =>
+    {
+        // Make sure we have the most current surface before playing the sound
         groundDetection.UpdateGroundState();
+        audioSystem.UpdateCurrentSurface(groundDetection);
+        audioSystem.PlayLandSound();
+    };
 
-        bool currentlyFalling = rb.linearVelocity.y < -0.1f && !groundDetection.IsGrounded;
-        anim.SetBool("isFalling", currentlyFalling);
+    speedMomentum.OnSpeedBoost += () =>
+    {
+        audioSystem.PlaySpeedBoostSound();
+        if (cameraFollow != null) cameraFollow.AddTrauma(0.1f);
+    };
 
-        // Check for landing using JustLanded()
-        if (groundDetection.JustLanded())
-        {
-            // Calculate fall speed (how fast we were falling before landing)
-            float fallSpeed = Mathf.Abs(lastVerticalVelocity);
+    speedMomentum.OnMaxSpeedReached += () =>
+    {
+        visualEffects.EnhanceSpeedParticles();
+    };
 
-            // Play landing particles with fall velocity info
-            visualEffects.PlayLandParticles(fallSpeed);
-
-            // Optional camera shake for heavy landings
-            if (fallSpeed > 8f && cameraFollow != null)
-            {
-                cameraFollow.AddTrauma(fallSpeed * 0.03f);
-            }
-        }
-
-        // Update jump system with ground state
-        jumpSystem.SetGrounded(groundDetection.IsGrounded);
-        anim.SetBool("isGrounded", groundDetection.IsGrounded); 
-
-        // Sync particle positions
-        visualEffects.SyncParticlesToPlayer(transform);
-
-        ReadInput();
-        HandleJumping();
-        HandleSpeedMomentum();
-        UpdateAnimations();
-        UpdateVisuals();
-        audioSystem.Update();
+    // Get camera follow
+    Camera mainCamera = Camera.main;
+    if (mainCamera != null)
+    {
+        cameraFollow = mainCamera.GetComponent<CameraFollow>();
     }
+}
+private void Update()
+{
+    // Store previous states
+    bool wasGrounded = groundDetection.IsGrounded;
+    float previousVerticalVelocity = rb.linearVelocity.y;
+    
+    // Update ground detection FIRST to get fresh surface data
+    groundDetection.UpdateGroundState();
+    
+    // Handle landing with the updated surface info
+    bool justLanded = !wasGrounded && groundDetection.IsGrounded;
+    
+    // Make sure audio system has the latest surface info before playing sounds
+    if (audioSystem != null)
+    {
+        audioSystem.UpdateCurrentSurface(groundDetection);
+    }
+    
+    if (justLanded || groundDetection.SurfaceJustChanged)
+    {
+        // Force audio system to use the correct surface
+        audioSystem.UpdateCurrentSurface(groundDetection);
+        
+        #if UNITY_EDITOR
+        // Debug info
+        if (justLanded)
+        {
+            Debug.Log($"Landing on {groundDetection.CurrentSurface}");
+        }
+        else if (groundDetection.SurfaceJustChanged)
+        {
+            Debug.Log($"Surface transitioned to {groundDetection.CurrentSurface}");
+        }
+        #endif
+        
+        // Play landing sound AFTER surface has been updated
+        audioSystem.PlayLandSound();
+        
+        // Play landing particles
+        float fallSpeed = Mathf.Abs(previousVerticalVelocity);
+        visualEffects.PlayLandParticles(fallSpeed);
+        
+        // Optional camera shake for heavy landings
+        if (fallSpeed > 8f && cameraFollow != null)
+        {
+            cameraFollow.AddTrauma(fallSpeed * 0.03f);
+        }
+    }
+
+    // Update jump system with ground state and position
+    jumpSystem.SetGrounded(groundDetection.IsGrounded, transform.position);
+    
+    // Clear the jumpSystem.OnLand event to prevent double sound playing
+    jumpSystem.OnLand = null;
+    
+    // Set animation parameters
+    anim.SetBool("isGrounded", groundDetection.IsGrounded); 
+    
+    // Update falling animation
+    bool isFalling = rb.linearVelocity.y < -0.1f && !groundDetection.IsGrounded;
+    anim.SetBool("isFalling", isFalling);
+
+    // Sync particle positions with player
+    visualEffects.SyncParticlesToPlayer(transform);
+
+    // Read player input
+    ReadInput();
+    
+    // Handle player actions
+    HandleJumping();
+    HandleSpeedMomentum();
+    HandleDuck(); // Make sure this method is called
+    
+    // Update visuals
+    UpdateAnimations();
+    UpdateVisuals();
+    
+    // Update audio system timers
+    audioSystem.Update();
+    
+    // Store current velocity for next frame
+    lastVerticalVelocity = rb.linearVelocity.y;
+}
 
     private void FixedUpdate()
     {
@@ -185,7 +233,7 @@ private void Awake()
         // Debug: Show jump system status when F2 key is pressed
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Debug.Log(jumpSystem.GetDebugStatus());
+            //Debug.Log(jumpSystem.GetDebugStatus());
         }
 
         // Debug: Force reset jump system when F3 key is pressed
@@ -226,13 +274,17 @@ private void Awake()
         anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
         anim.SetBool("isWalking", Mathf.Abs(rb.linearVelocity.x) > 0.1f);
 
-        audioSystem.UpdateFootsteps(
-            groundDetection.IsGrounded,
-            rb.linearVelocity.x,
-            movementSystem.MaxSpeed,
-            transform.position
-        );
+        audioSystem.UpdateFootsteps(groundDetection, rb.linearVelocity.x, movementSystem.MaxSpeed);
     }
+
+private void HandleDuck()
+{
+    if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+    {
+        anim.SetTrigger("Duck");
+        audioSystem.PlayCrouchSound(); // Play surface-specific crouch sound
+    }
+}
 
     private void UpdateSpriteFlipping()
     {
@@ -278,7 +330,7 @@ public IPlayerInput GetInputSystem()
 {
     if (inputSystem == null)
     {
-        Debug.LogWarning("Input system is null, creating new DefaultPlayerInput");
+        //Debug.LogWarning("Input system is null, creating new DefaultPlayerInput");
         inputSystem = new DefaultPlayerInput();
     }
     return inputSystem;
@@ -288,12 +340,12 @@ public void SetInputSystem(IPlayerInput newInputSystem)
 {
     if (newInputSystem == null)
     {
-        Debug.LogError("Attempted to set null input system!");
+        //Debug.LogError("Attempted to set null input system!");
         return;
     }
     
     inputSystem = newInputSystem;
-    Debug.Log($"PlayerMovement: Input system set to {newInputSystem.GetType().Name}");
+    //Debug.Log($"PlayerMovement: Input system set to {newInputSystem.GetType().Name}");
 }
 
     // Public API - Getters

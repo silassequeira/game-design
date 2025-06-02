@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class PlayerAudioSystem
 {
-    [Header("Audio Clips")]
-    [SerializeField] private AudioClip jumpSound;
+    [Header("Surface-Based Audio")]
+    [SerializeField] private SurfaceSounds[] surfaceSounds;
+    [SerializeField] private SurfaceType defaultSurface = SurfaceType.Default;
+    
+    [Header("Generic Audio Clips")]
     [SerializeField] private AudioClip doubleJumpSound;
-    [SerializeField] private AudioClip landSound;
     [SerializeField] private AudioClip speedBoostSound;
-    [SerializeField] private AudioClip[] footstepSounds;
     
     [Header("Footstep Settings")]
     [SerializeField] private float footstepInterval = 0.3f;
@@ -17,36 +19,50 @@ public class PlayerAudioSystem
     [SerializeField] private float maxPitchVariation = 1.1f;
     [SerializeField] private float minVolumeThreshold = 0.5f;
     [SerializeField] private bool speedAffectsFootsteps = true;
-    [SerializeField] private LayerMask footstepSurfaceLayers;
     
     [Header("Volume Settings")]
     [SerializeField, Range(0f, 1f)] private float masterVolume = 1.0f;
     [SerializeField, Range(0f, 1f)] private float effectsVolume = 1.0f;
     [SerializeField, Range(0f, 1f)] private float footstepsVolume = 0.7f;
-    
+
     [Header("Sound Overlap Prevention")]
-    [SerializeField] private bool preventJumpSoundOverlap = true;
-    [SerializeField] private bool preventLandSoundOverlap = true;
-    [SerializeField] private float jumpSoundCooldown = 0.5f; // Minimum time between jump sounds
-    [SerializeField] private float landSoundCooldown = 0.5f; // Minimum time between land sounds
+    [SerializeField] private bool preventSoundOverlap = true;
+    [SerializeField] private float soundCooldown = 0.2f;
     
     private AudioSource audioSource;
     private float footstepTimer = 0f;
     private int lastFootstepIndex = -1;
     private MonoBehaviour coroutineRunner;
+    private Dictionary<SoundType, float> soundTimers = new Dictionary<SoundType, float>();
     
-    // Sound overlap prevention timers
-    private float jumpSoundTimer = 0f;
-    private float landSoundTimer = 0f;
+    // Current surface the player is on
+    private SurfaceType currentSurface = SurfaceType.Default;
+
+    private float lastCustomSoundTime = 0f;
+    private const float CUSTOM_SOUND_COOLDOWN = 0.2f;
     
-    // For tracking one-shot sounds currently playing
-    private AudioSource jumpAudioSource;
-    private AudioSource landAudioSource;
+    // Sound type enum for cooldown tracking
+    public enum SoundType
+    {
+        Jump,
+        Land,
+        Footstep,
+        Crouch,
+        DoubleJump,
+        SpeedBoost
+    }
     
     public void Initialize(AudioSource source, MonoBehaviour runner = null)
     {
         audioSource = source;
         coroutineRunner = runner;
+        
+        // Clear and initialize all sound timers
+        soundTimers.Clear();
+        foreach (SoundType type in System.Enum.GetValues(typeof(SoundType)))
+        {
+            soundTimers[type] = 0f;
+        }
         
         // Configure audio source
         if (audioSource != null)
@@ -58,88 +74,143 @@ public class PlayerAudioSystem
     
     public void Update()
     {
-        // Update sound timers
-        if (jumpSoundTimer > 0)
-            jumpSoundTimer -= Time.deltaTime;
-            
-        if (landSoundTimer > 0)
-            landSoundTimer -= Time.deltaTime;
+        // Create a temporary list of keys to avoid modification issues
+        List<SoundType> keys = new List<SoundType>(soundTimers.Keys);
+        
+        // Update all sound timers using the temporary list
+        foreach (SoundType type in keys)
+        {
+            if (soundTimers[type] > 0)
+                soundTimers[type] -= Time.deltaTime;
+        }
     }
     
+    // Get the appropriate sounds for current surface
+    private SurfaceSounds GetCurrentSurfaceSounds()
+    {
+        foreach (var sounds in surfaceSounds)
+        {
+            if (sounds.surfaceType == currentSurface)
+                return sounds;
+        }
+        
+        // Return the first surface as fallback (should be default)
+        return surfaceSounds.Length > 0 ? surfaceSounds[0] : null;
+    }
+    
+    // Update current surface from GroundDetection
+    public void UpdateCurrentSurface(GroundDetection groundDetection)
+    {
+        if (groundDetection != null)
+        {
+            currentSurface = groundDetection.CurrentSurface;
+            
+            #if UNITY_EDITOR
+            // Debug output for surface detection
+            if (Time.frameCount % 120 == 0) // Only log every 120 frames to reduce spam
+            {
+                Debug.Log($"Audio system using surface: {currentSurface} from ground detection");
+            }
+            #endif
+        }
+    }
+    
+    // Play jump sound based on current surface
     public void PlayJumpSound(bool isDoubleJump = false)
     {
-        AudioClip soundToPlay = isDoubleJump ? doubleJumpSound : jumpSound;
+        if (isDoubleJump)
+        {
+            PlaySound(doubleJumpSound, SoundType.DoubleJump);
+            return;
+        }
         
-        // Skip if we're in cooldown period and prevention is enabled
-        if (preventJumpSoundOverlap && jumpSoundTimer > 0)
+        SurfaceSounds sounds = GetCurrentSurfaceSounds();
+        if (sounds == null || sounds.jumpSounds == null || sounds.jumpSounds.Length == 0)
             return;
             
-        if (soundToPlay != null && audioSource != null)
-        {
-            // Calculate clip duration and set timer
-            float clipDuration = soundToPlay.length;
-            jumpSoundTimer = preventJumpSoundOverlap ? clipDuration : jumpSoundCooldown;
-            
-            // Play at appropriate volume
-            float finalVolume = masterVolume * effectsVolume;
-            audioSource.PlayOneShot(soundToPlay, finalVolume);
-        }
+        // Get random jump sound for current surface
+        AudioClip clip = GetRandomClip(sounds.jumpSounds);
+        PlaySound(clip, SoundType.Jump, sounds.footstepVolume, sounds.pitchVariation);
     }
     
-    public void PlayLandSound()
+    // Play land sound based on current surface
+public void PlayLandSound()
+{
+    // Re-get the current surface sounds to ensure freshness
+    SurfaceSounds sounds = GetCurrentSurfaceSounds();
+    Debug.Log($"Playing landing sound for surface: {currentSurface}");
+    
+    if (sounds == null || sounds.landSounds == null || sounds.landSounds.Length == 0)
     {
-        // Skip if we're in cooldown period and prevention is enabled
-        if (preventLandSoundOverlap && landSoundTimer > 0)
+        Debug.LogWarning($"No landing sounds available for surface: {currentSurface}");
+        return;
+    }
+        
+    // Get random land sound for current surface
+    AudioClip clip = GetRandomClip(sounds.landSounds);
+    PlaySound(clip, SoundType.Land, sounds.footstepVolume, sounds.pitchVariation);
+}
+    
+    // Play crouch sound based on current surface
+    public void PlayCrouchSound()
+    {
+        SurfaceSounds sounds = GetCurrentSurfaceSounds();
+        if (sounds == null || sounds.crouchSounds == null || sounds.crouchSounds.Length == 0)
             return;
             
-        if (landSound != null && audioSource != null)
-        {
-            // Calculate clip duration and set timer
-            float clipDuration = landSound.length;
-            landSoundTimer = preventLandSoundOverlap ? clipDuration : landSoundCooldown;
-            
-            // Play at appropriate volume
-            float finalVolume = masterVolume * effectsVolume;
-            audioSource.PlayOneShot(landSound, finalVolume);
-        }
+        // Get random crouch sound for current surface
+        AudioClip clip = GetRandomClip(sounds.crouchSounds);
+        PlaySound(clip, SoundType.Crouch, sounds.footstepVolume, sounds.pitchVariation);
     }
     
     public void PlaySpeedBoostSound()
     {
-        if (speedBoostSound != null && audioSource != null)
-        {
-            // Play sound with variation
-            PlaySoundWithVariation(speedBoostSound, effectsVolume, 0.0f);
-        }
+        PlaySound(speedBoostSound, SoundType.SpeedBoost, 1.0f, 0.1f);
     }
     
-    // New method to play any sound with common settings
-    public void PlaySound(AudioClip clip, float volumeScale = 1.0f)
+    // Updated footstep system with GroundDetection integration
+    public void UpdateFootsteps(GroundDetection groundDetection, float velocity, float maxSpeed)
     {
-        if (clip != null && audioSource != null)
+        if (groundDetection == null)
+            return;
+            
+        // Update current surface from ground detection
+        UpdateCurrentSurface(groundDetection);
+        
+        if (groundDetection.IsGrounded && Mathf.Abs(velocity) > minVolumeThreshold)
         {
-            float finalVolume = masterVolume * effectsVolume * volumeScale;
-            audioSource.PlayOneShot(clip, finalVolume);
+            // Calculate interval based on speed if enabled
+            float currentInterval = footstepInterval;
+            if (speedAffectsFootsteps)
+            {
+                // Faster movement = faster footsteps
+                float speedFactor = Mathf.InverseLerp(minVolumeThreshold, maxSpeed, Mathf.Abs(velocity));
+                currentInterval = Mathf.Lerp(footstepInterval, footstepInterval * 0.6f, speedFactor);
+            }
+            
+            footstepTimer += Time.deltaTime;
+            
+            if (footstepTimer >= currentInterval)
+            {
+                PlayFootstepSound(velocity, maxSpeed);
+                footstepTimer = 0f;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
         }
     }
     
-    // Play a sound with random pitch variation
-    private void PlaySoundWithVariation(AudioClip clip, float volumeScale = 1.0f, float pitchVariation = 0.1f)
-    {
-        if (clip != null && audioSource != null)
-        {
-            float originalPitch = audioSource.pitch;
-            audioSource.pitch = Random.Range(1.0f - pitchVariation, 1.0f + pitchVariation);
-            
-            float finalVolume = masterVolume * volumeScale;
-            audioSource.PlayOneShot(clip, finalVolume);
-            
-            audioSource.pitch = originalPitch;
-        }
-    }
-    
+    // Keeping the old method for backward compatibility
     public void UpdateFootsteps(bool isGrounded, float velocity, float maxSpeed, Vector2 playerPosition)
     {
+        // This method is kept for backward compatibility
+        // It's recommended to use the GroundDetection version instead
+        #if UNITY_EDITOR
+        Debug.LogWarning("Consider using the GroundDetection version of UpdateFootsteps instead");
+        #endif
+        
         if (isGrounded && Mathf.Abs(velocity) > minVolumeThreshold)
         {
             // Calculate interval based on speed if enabled
@@ -167,30 +238,105 @@ public class PlayerAudioSystem
     
     private void PlayFootstepSound(float velocity, float maxSpeed)
     {
-        if (audioSource == null || footstepSounds == null || footstepSounds.Length == 0)
+        SurfaceSounds sounds = GetCurrentSurfaceSounds();
+        if (sounds == null || sounds.footstepSounds == null || sounds.footstepSounds.Length == 0)
             return;
         
-        // Select random sound
-        int index = Random.Range(0, footstepSounds.Length);
-        if (footstepSounds.Length > 1 && index == lastFootstepIndex)
-        {
-            index = (index + 1) % footstepSounds.Length;
-        }
-        lastFootstepIndex = index;
+        // Skip if we're in cooldown period
+        if (preventSoundOverlap && soundTimers[SoundType.Footstep] > 0)
+            return;
+            
+        // Select random sound avoiding repeats
+        AudioClip clip = GetRandomClip(sounds.footstepSounds, lastFootstepIndex);
+        lastFootstepIndex = System.Array.IndexOf(sounds.footstepSounds, clip);
         
         // Calculate volume based on speed
         float speedRatio = Mathf.InverseLerp(minVolumeThreshold, maxSpeed, Mathf.Abs(velocity));
-        float volume = masterVolume * footstepsVolume * Mathf.Lerp(0.2f, 1.0f, speedRatio);
+        float volumeMultiplier = Mathf.Lerp(0.2f, 1.0f, speedRatio);
+        float finalVolume = masterVolume * footstepsVolume * sounds.footstepVolume * volumeMultiplier;
         
+        // Play with pitch variation
+        float originalPitch = audioSource.pitch;
         audioSource.pitch = Random.Range(minPitchVariation, maxPitchVariation);
-        audioSource.PlayOneShot(footstepSounds[index], volume);
-        audioSource.pitch = 1.0f;
+        
+        audioSource.PlayOneShot(clip, finalVolume);
+        soundTimers[SoundType.Footstep] = clip.length * 0.7f; // Set cooldown to portion of clip length
+        
+        audioSource.pitch = originalPitch;
     }
     
+    // Helper to get a random clip, optionally avoiding a specific index
+    private AudioClip GetRandomClip(AudioClip[] clips, int avoidIndex = -1)
+    {
+        if (clips == null || clips.Length == 0)
+            return null;
+            
+        if (clips.Length == 1)
+            return clips[0];
+            
+        int index = Random.Range(0, clips.Length);
+        if (index == avoidIndex && clips.Length > 1)
+        {
+            index = (index + 1) % clips.Length;
+        }
+        
+        return clips[index];
+    }
+    
+    private void PlaySound(AudioClip clip, SoundType type, float volumeScale = 1.0f, float pitchVariation = 0.1f)
+    {
+        if (clip == null || audioSource == null)
+            return;
+            
+        // Skip if we're in cooldown period and prevention is enabled
+        if (preventSoundOverlap && soundTimers[type] > 0)
+            return;
+            
+        float originalPitch = audioSource.pitch;
+        if (pitchVariation > 0)
+        {
+            audioSource.pitch = Random.Range(1.0f - pitchVariation, 1.0f + pitchVariation);
+        }
+        
+        float finalVolume = masterVolume * effectsVolume * volumeScale;
+        audioSource.PlayOneShot(clip, finalVolume);
+        
+        // Set cooldown timer
+        soundTimers[type] = preventSoundOverlap ? clip.length : soundCooldown;
+        
+        audioSource.pitch = originalPitch;
+    }
+    
+    public void PlayCustomSound(AudioClip clip, float volumeScale = 1.0f, float pitchVariation = 0.1f)
+    {
+        if (clip == null || audioSource == null)
+            return;
+    
+        // Simple cooldown system to prevent sound spam
+        if (Time.time - lastCustomSoundTime < CUSTOM_SOUND_COOLDOWN)
+            return;
+            
+        lastCustomSoundTime = Time.time;
+        
+        float originalPitch = audioSource.pitch;
+        if (pitchVariation > 0)
+        {
+            audioSource.pitch = Random.Range(1.0f - pitchVariation, 1.0f + pitchVariation);
+        }
+        
+        float finalVolume = masterVolume * effectsVolume * volumeScale;
+        audioSource.PlayOneShot(clip, finalVolume);
+        
+        // Reset pitch to original value
+        audioSource.pitch = originalPitch;
+    }
+ 
     // Volume control methods
     public void SetMasterVolume(float volume)
     {
         masterVolume = Mathf.Clamp01(volume);
+        if (audioSource != null)
+            audioSource.volume = masterVolume;
     }
     
     public void SetEffectsVolume(float volume)
@@ -198,20 +344,35 @@ public class PlayerAudioSystem
         effectsVolume = Mathf.Clamp01(volume);
     }
     
-    // Sound overlap prevention methods
-    public void SetPreventJumpSoundOverlap(bool prevent)
+    public void SetFootstepsVolume(float volume)
     {
-        preventJumpSoundOverlap = prevent;
+        footstepsVolume = Mathf.Clamp01(volume);
     }
-    
-    public void SetPreventLandSoundOverlap(bool prevent)
-    {
-        preventLandSoundOverlap = prevent;
-    }
-    
+
     // Getters
-    public AudioSource GetAudioSource() => audioSource;
     public AudioClip GetDoubleJumpSound() => doubleJumpSound;
-    public bool IsJumpSoundPlaying => jumpSoundTimer > 0;
-    public bool IsLandSoundPlaying => landSoundTimer > 0;
+    public AudioSource GetAudioSource() => audioSource;
+    public SurfaceType GetCurrentSurface() => currentSurface;
+    public bool IsSoundPlaying(SoundType type) => soundTimers.ContainsKey(type) && soundTimers[type] > 0;
+    
+    // Debug drawing method
+    public void DrawGizmos(Transform ownerTransform)
+    {
+        #if UNITY_EDITOR
+        if (!Application.isPlaying) return;
+        
+        // Draw surface type info
+        UnityEditor.Handles.BeginGUI();
+        Vector3 textPos = ownerTransform.position;
+        textPos.y += 0.5f;
+        
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.white;
+        style.alignment = TextAnchor.MiddleCenter;
+        style.fontSize = 12;
+        
+        UnityEditor.Handles.Label(textPos, $"Audio Surface: {currentSurface}", style);
+        UnityEditor.Handles.EndGUI();
+        #endif
+    }
 }

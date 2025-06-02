@@ -10,6 +10,7 @@ public class PlayerVisualEffects
     [SerializeField] private ParticleSystem landParticles;
     [SerializeField] private ParticleSystem speedParticles;
     [SerializeField] private ParticleSystem specialEffectsParticles;
+
     
 [Header("Shadow")]
 [SerializeField] private GameObject shadowObject;
@@ -231,7 +232,7 @@ public class PlayerVisualEffects
         // Don't play land particles if we're in the process of jumping
         if (isPlayingJumpParticles)
         {
-            Debug.Log("Land particles skipped - jump particles already playing");
+            //Debug.Log("Land particles skipped - jump particles already playing");
             return;
         }
         

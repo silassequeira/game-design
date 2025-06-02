@@ -15,7 +15,7 @@ public class MoveEveOnTrigger : MonoBehaviour
     [SerializeField] private Vector3 targetPosition = new Vector3(41.71f, 1.57f, 0f);
     [SerializeField] private bool useLocalPosition = true; // Set to true if Eve is inside a parent
     [SerializeField] private bool moveOnce = true;
-    [SerializeField] private bool debugMode = true;
+    [SerializeField] private bool debugMode = false;
 
     private bool hasMovedEve = false;
     
@@ -61,15 +61,14 @@ public class MoveEveOnTrigger : MonoBehaviour
             
             if (debugMode)
             {
-                Debug.Log($"Eve moved from {originalPosition} to {eve.transform.position} " + 
-                         $"(using {(useLocalPosition ? "local" : "world")} position)");
+                // Debug.Log($"Eve moved from {originalPosition} to {eve.transform.position} (using {(useLocalPosition ? "local" : "world")} position)");
             }
             
             hasMovedEve = true;
         }
         else
         {
-            Debug.LogError("Eve GameObject is not assigned in the Inspector on " + gameObject.name);
+            //Debug.LogError("Eve GameObject is not assigned in the Inspector on " + gameObject.name);
         }
     }
     

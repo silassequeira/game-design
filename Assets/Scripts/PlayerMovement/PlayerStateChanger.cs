@@ -143,7 +143,8 @@ private void ApplyTransformation()
             AudioClip doubleJumpSound = audioSystem.GetDoubleJumpSound();
             if (doubleJumpSound != null)
             {
-                audioSystem.PlaySound(doubleJumpSound, 1.5f);  // Play at higher volume for emphasis
+                // Provide appropriate parameters for PlayCustomSound, e.g., volume and pitch
+                audioSystem.PlayCustomSound(audioSystem.GetDoubleJumpSound(), 1.0f, 1.0f);     
             }
         }
         

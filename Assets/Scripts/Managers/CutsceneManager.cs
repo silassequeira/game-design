@@ -60,7 +60,7 @@ public class CutsceneManager : MonoBehaviour
             
             // Start the video cutscene
             videoCutscene.StartEndLevelCutscene();
-            Debug.Log("CutsceneManager: Starting video cutscene");
+            //Debug.Log("CutsceneManager: Starting video cutscene");
         }
         else
         {
@@ -75,7 +75,7 @@ public class CutsceneManager : MonoBehaviour
         if (videoCutscene != null)
             videoCutscene.OnCutsceneEnded -= PlayIntroCutscene;
         
-        Debug.Log("CutsceneManager: Video cutscene complete, starting intro cutscene");
+        //Debug.Log("CutsceneManager: Video cutscene complete, starting intro cutscene");
         
         // Play the introductory cutscene
         if (introCutscene != null)
@@ -98,13 +98,13 @@ public class CutsceneManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.SetGameState(GameManager.GameState.Playing);
-            Debug.Log("CutsceneManager: All cutscenes complete, setting state to Playing");
+            //Debug.Log("CutsceneManager: All cutscenes complete, setting state to Playing");
         }
     }
     
     public void SkipAllCutscenes()
     {
-        Debug.Log("CutsceneManager: Skipping all cutscenes");
+        //Debug.Log("CutsceneManager: Skipping all cutscenes");
         
         // Unsubscribe from events
         if (videoCutscene != null)

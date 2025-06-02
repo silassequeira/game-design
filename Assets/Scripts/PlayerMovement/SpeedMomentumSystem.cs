@@ -112,7 +112,7 @@ public class SpeedMomentumSystem
                 if (Time.time - lastLeftTapTime < doubleTapTimeWindow)
                 {
                     StartSprint(-1);
-                    Debug.Log("Sprint Started (Left)");
+                    //Debug.Log("Sprint Started (Left)");
                 }
                 lastLeftTapTime = Time.time;
             }
@@ -123,7 +123,7 @@ public class SpeedMomentumSystem
                 if (Time.time - lastRightTapTime < doubleTapTimeWindow)
                 {
                     StartSprint(1);
-                    Debug.Log("Sprint Started (Right)");
+                    //Debug.Log("Sprint Started (Right)");
                 }
                 lastRightTapTime = Time.time;
             }
@@ -151,7 +151,7 @@ public class SpeedMomentumSystem
             if (inputLost || !isStillHoldingDirection)
             {
                 EndSprint();
-                Debug.Log("Sprint Ended - Input stopped or changed direction");
+                //Debug.Log("Sprint Ended - Input stopped or changed direction");
             }
             else
             {

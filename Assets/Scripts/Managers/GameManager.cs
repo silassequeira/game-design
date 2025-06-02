@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     
 public void StartGame()
 {
-    Debug.Log("GameManager: Starting game...");
+    //Debug.Log("GameManager: Starting game...");
     
     // Set state to Loading during cutscenes
     currentGameState = GameState.Loading;
@@ -84,7 +84,7 @@ public void StartGame()
         // No cutscenes available, directly set state to Playing
         currentGameState = GameState.Playing;
         CurrentLevel = 1;
-        Debug.Log("GameManager: Game state set to Playing (no cutscenes)");
+        //Debug.Log("GameManager: Game state set to Playing (no cutscenes)");
     }
 }
     
@@ -99,16 +99,16 @@ public void StartGame()
     
 public void ResumeGame()
 {
-    Debug.Log("ResumeGame button clicked");
+    //Debug.Log("ResumeGame button clicked");
     if (currentGameState == GameState.Paused)
     {
         currentGameState = GameState.Playing;
         Time.timeScale = 1f;
-        Debug.Log("Game state set to Playing");
+        //Debug.Log("Game state set to Playing");
     }
     else
     {
-        Debug.Log("Game is not in Paused state");
+        //Debug.Log("Game is not in Paused state");
     }
 }
     

@@ -16,7 +16,7 @@ public class MusicProximityController : MonoBehaviour
     {
         if (ambientMusic == null)
         {
-            Debug.LogError("AudioSource not assigned!");
+            //Debug.LogError("AudioSource not assigned!");
             enabled = false;
             return;
         }

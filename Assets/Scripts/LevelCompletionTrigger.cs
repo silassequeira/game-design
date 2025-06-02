@@ -30,7 +30,7 @@ private void Start()
         cutsceneController = Object.FindFirstObjectByType<EndLevelCutscene>();
         if (cutsceneController == null)
         {
-            Debug.LogError("No EndLevelCutscene found in scene!");
+            //Debug.LogError("No EndLevelCutscene found in scene!");
         }
     }
 }

@@ -22,7 +22,7 @@ public class PlayerParticleConnector : MonoBehaviour
         
         if (playerMovement == null)
         {
-            Debug.LogError("PlayerMovement component not found!");
+            //Debug.LogError("PlayerMovement component not found!");
             return;
         }
         
@@ -30,7 +30,7 @@ public class PlayerParticleConnector : MonoBehaviour
         
         if (visualEffects == null)
         {
-            Debug.LogError("PlayerVisualEffects not found in PlayerMovement!");
+            //Debug.LogError("PlayerVisualEffects not found in PlayerMovement!");
             return;
         }
         
@@ -137,7 +137,7 @@ public class PlayerParticleConnector : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Field '{fieldName}' not found in {instance.GetType().Name}");
+            //Debug.LogError($"Field '{fieldName}' not found in {instance.GetType().Name}");
         }
     }
 }

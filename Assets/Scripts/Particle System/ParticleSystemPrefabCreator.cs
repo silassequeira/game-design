@@ -100,7 +100,7 @@ public class ParticleSystemPrefabCreator : EditorWindow
             // Clean up
             DestroyImmediate(combinedObject);
             
-            Debug.Log("Created combined particle system prefab at: " + combinedPath);
+            //Debug.Log("Created combined particle system prefab at: " + combinedPath);
         }
         else
         {
@@ -111,7 +111,7 @@ public class ParticleSystemPrefabCreator : EditorWindow
             if (speedPS != null) PrefabUtility.SaveAsPrefabAsset(speedPS.gameObject, $"{savePath}/SpeedParticles.prefab");
             if (specialPS != null) PrefabUtility.SaveAsPrefabAsset(specialPS.gameObject, $"{savePath}/SpecialParticles.prefab");
             
-            Debug.Log("Created individual particle system prefabs in: " + savePath);
+            //Debug.Log("Created individual particle system prefabs in: " + savePath);
         }
     }
 }
