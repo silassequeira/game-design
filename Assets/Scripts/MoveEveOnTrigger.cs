@@ -5,6 +5,7 @@ public class MoveEveOnTrigger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject eve; // Assign Eve GameObject in the Inspector
+    [SerializeField] private GameObject[] additionalObjects; // Additional objects to move
     
     [Header("Fog of War")]
     [SerializeField] private GameObject[] fogObjects; // Assign fog objects that hide unexplored areas
@@ -13,11 +14,13 @@ public class MoveEveOnTrigger : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private Vector3 targetPosition = new Vector3(41.71f, 1.57f, 0f);
-    [SerializeField] private bool useLocalPosition = true; // Set to true if Eve is inside a parent
+    [SerializeField] private bool useLocalPosition = true; // Set to true if objects are inside a parent
     [SerializeField] private bool moveOnce = true;
     [SerializeField] private bool debugMode = false;
+    [SerializeField] private bool keepRelativePositions = false; // Keep objects' positions relative to Eve
 
-    private bool hasMovedEve = false;
+    private bool hasMovedObjects = false;
+    private Vector3[] relativePositions; // Store relative positions if needed
     
     // Define how to reveal fog
     public enum FogRevealType
@@ -26,25 +29,52 @@ public class MoveEveOnTrigger : MonoBehaviour
         Disable,   // Set fog objects inactive
         Fade       // Gradually fade them out
     }
+    
+    private void Start()
+    {
+        // If keeping relative positions, calculate and store them at start
+        if (keepRelativePositions && eve != null && additionalObjects != null && additionalObjects.Length > 0)
+        {
+            relativePositions = new Vector3[additionalObjects.Length];
+            
+            for (int i = 0; i < additionalObjects.Length; i++)
+            {
+                if (additionalObjects[i] != null)
+                {
+                    if (useLocalPosition)
+                    {
+                        // Store relative local positions
+                        relativePositions[i] = additionalObjects[i].transform.localPosition - eve.transform.localPosition;
+                    }
+                    else
+                    {
+                        // Store relative world positions
+                        relativePositions[i] = additionalObjects[i].transform.position - eve.transform.position;
+                    }
+                }
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Make sure we're colliding with the player
         if (collision.CompareTag("Player"))
         {
-            // Only move Eve if we haven't moved her yet (if moveOnce is true)
-            if (!hasMovedEve || !moveOnce)
+            // Only move objects if we haven't moved them yet (if moveOnce is true)
+            if (!hasMovedObjects || !moveOnce)
             {
-                if (debugMode) Debug.Log("Player triggered the Eve mover!");
+                if (debugMode) Debug.Log("Player triggered the object mover!");
                 
-                MoveEve();
+                MoveObjects();
                 RevealFogOfWar();
             }
         }
     }
     
-    private void MoveEve()
+    private void MoveObjects()
     {
+        // First move Eve
         if (eve != null)
         {
             Vector3 originalPosition = eve.transform.position;
@@ -61,15 +91,56 @@ public class MoveEveOnTrigger : MonoBehaviour
             
             if (debugMode)
             {
-                // Debug.Log($"Eve moved from {originalPosition} to {eve.transform.position} (using {(useLocalPosition ? "local" : "world")} position)");
+                Debug.Log($"Eve moved from {originalPosition} to {eve.transform.position} (using {(useLocalPosition ? "local" : "world")} position)");
             }
-            
-            hasMovedEve = true;
         }
-        else
+        
+        // Then move additional objects
+        if (additionalObjects != null && additionalObjects.Length > 0)
         {
-            //Debug.LogError("Eve GameObject is not assigned in the Inspector on " + gameObject.name);
+            for (int i = 0; i < additionalObjects.Length; i++)
+            {
+                if (additionalObjects[i] != null)
+                {
+                    Vector3 newPosition;
+                    
+                    // Calculate position based on whether we're keeping relative positions
+                    if (keepRelativePositions && relativePositions != null && i < relativePositions.Length)
+                    {
+                        if (useLocalPosition)
+                        {
+                            newPosition = targetPosition + relativePositions[i];
+                        }
+                        else
+                        {
+                            newPosition = targetPosition + relativePositions[i];
+                        }
+                    }
+                    else
+                    {
+                        // Move to exact same target position
+                        newPosition = targetPosition;
+                    }
+                    
+                    // Apply the position
+                    if (useLocalPosition)
+                    {
+                        additionalObjects[i].transform.localPosition = newPosition;
+                    }
+                    else
+                    {
+                        additionalObjects[i].transform.position = newPosition;
+                    }
+                    
+                    if (debugMode)
+                    {
+                        Debug.Log($"Additional object '{additionalObjects[i].name}' moved to position {newPosition}");
+                    }
+                }
+            }
         }
+        
+        hasMovedObjects = true;
     }
     
     private void RevealFogOfWar()

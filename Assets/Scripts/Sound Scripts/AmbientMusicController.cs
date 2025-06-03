@@ -4,7 +4,7 @@ public class MusicProximityController : MonoBehaviour
 {
     public AudioSource ambientMusic;
     public Transform player;
-    public Transform evaObject;
+    public Transform soundObject;
     public float maxDistance = 10f;
     public float minVolume = 0.2f;
     public float maxVolume = 1f;
@@ -27,10 +27,10 @@ public class MusicProximityController : MonoBehaviour
 
     void Update()
     {
-        if (player == null || evaObject == null) return;
+        if (player == null || soundObject == null) return;
 
         // Calculate distance between player and Eva
-        float distance = Vector2.Distance(player.position, evaObject.position);
+        float distance = Vector2.Distance(player.position, soundObject.position);
 
         // Calculate target volume based on distance (inverse relationship)
         if (distance <= maxDistance)
