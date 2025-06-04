@@ -65,15 +65,6 @@ public void UpdateGroundState()
         // Check if surface changed while remaining grounded
         surfaceJustChanged = (previousSurface != currentSurface);
         
-        // Debug landing and surface changes
-        if (justLanded)
-        {
-            Debug.Log($"Just landed on {currentSurface}");
-        }
-        else if (surfaceJustChanged)
-        {
-            Debug.Log($"Surface changed from {previousSurface} to {currentSurface}");
-        }
     }
     else
     {

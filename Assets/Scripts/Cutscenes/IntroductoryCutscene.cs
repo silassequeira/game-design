@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using InputSystems;
 
 public class IntroductoryCutscene : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class IntroductoryCutscene : MonoBehaviour
     private bool cutsceneActive = false;
     public bool isPlaying => cutsceneActive;
     private IPlayerInput originalInput;
-    private SimulatedInput simulatedInput;
+    private VirtualInput simulatedInput;
 
     private void Awake()
     {
@@ -34,9 +35,9 @@ public class IntroductoryCutscene : MonoBehaviour
             return;
         }
         
-        // Initialize simulated input
-        simulatedInput = new SimulatedInput();
-        //Debug.Log("IntroductoryCutscene: SimulatedInput created in Awake");
+        // Initialize simulated input - using VirtualInput instead of SimulatedInput
+        simulatedInput = new VirtualInput();
+        //Debug.Log("IntroductoryCutscene: VirtualInput created in Awake");
     }
 
     private void Start()
@@ -108,10 +109,10 @@ public class IntroductoryCutscene : MonoBehaviour
                 //Debug.LogError("Original input is null! Player controls will fail when cutscene ends.");
             }
             
-            // Reset simulated input values
-            simulatedInput.HorizontalInput = 0;
-            simulatedInput.JumpInput = false;
-            simulatedInput.JumpInputHeld = false;
+            // Reset simulated input values - Using the correct methods instead of properties
+            simulatedInput.SetHorizontalInput(0);
+            simulatedInput.SetJumpInputDown(false);
+            simulatedInput.SetJumpInputHeld(false);
             
             // Set our simulated input
             playerMovement.SetInputSystem(simulatedInput);
@@ -125,8 +126,8 @@ public class IntroductoryCutscene : MonoBehaviour
             yield return null;
             
             // Configure the simulated input for moving right
-            simulatedInput.HorizontalInput = 1.0f; // Right direction
-            //Debug.Log($"Cutscene: Set horizontal input to {simulatedInput.HorizontalInput}");
+            simulatedInput.SetHorizontalInput(1.0f); // Right direction
+            //Debug.Log($"Cutscene: Set horizontal input to {simulatedInput.GetHorizontalInput()}");
         }
         else
         {
@@ -144,13 +145,13 @@ public class IntroductoryCutscene : MonoBehaviour
             if (simulatedInput != null)
             {
                 // Make sure horizontal input is continuously set to right
-                simulatedInput.HorizontalInput = 1.0f;
+                simulatedInput.SetHorizontalInput(1.0f);
             }
             
             // Print debug info every half second
             if (Mathf.FloorToInt(elapsedTime * 2) != Mathf.FloorToInt((elapsedTime + Time.deltaTime) * 2))
             {
-                //Debug.Log($"Cutscene: Time {elapsedTime:F1}s, HorizInput={simulatedInput.HorizontalInput}");
+                //Debug.Log($"Cutscene: Time {elapsedTime:F1}s, HorizInput={simulatedInput.GetHorizontalInput()}");
                 
                 // Verify player velocity
                 if (playerMovement != null)

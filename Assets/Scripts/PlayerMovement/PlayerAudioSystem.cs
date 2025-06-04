@@ -104,14 +104,7 @@ public class PlayerAudioSystem
         if (groundDetection != null)
         {
             currentSurface = groundDetection.CurrentSurface;
-            
-            #if UNITY_EDITOR
-            // Debug output for surface detection
-            if (Time.frameCount % 120 == 0) // Only log every 120 frames to reduce spam
-            {
-                Debug.Log($"Audio system using surface: {currentSurface} from ground detection");
-            }
-            #endif
+        
         }
     }
     
@@ -138,11 +131,11 @@ public void PlayLandSound()
 {
     // Re-get the current surface sounds to ensure freshness
     SurfaceSounds sounds = GetCurrentSurfaceSounds();
-    Debug.Log($"Playing landing sound for surface: {currentSurface}");
+    //Debug.Log($"Playing landing sound for surface: {currentSurface}");
     
     if (sounds == null || sounds.landSounds == null || sounds.landSounds.Length == 0)
     {
-        Debug.LogWarning($"No landing sounds available for surface: {currentSurface}");
+        //Debug.LogWarning($"No landing sounds available for surface: {currentSurface}");
         return;
     }
         
@@ -205,11 +198,6 @@ public void PlayLandSound()
     // Keeping the old method for backward compatibility
     public void UpdateFootsteps(bool isGrounded, float velocity, float maxSpeed, Vector2 playerPosition)
     {
-        // This method is kept for backward compatibility
-        // It's recommended to use the GroundDetection version instead
-        #if UNITY_EDITOR
-        Debug.LogWarning("Consider using the GroundDetection version of UpdateFootsteps instead");
-        #endif
         
         if (isGrounded && Mathf.Abs(velocity) > minVolumeThreshold)
         {

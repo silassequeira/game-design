@@ -44,7 +44,7 @@ public class PlayerVisualEffects
         if (doubleJumpParticles != null)
         {
             var main = doubleJumpParticles.main;
-            main.simulationSpace = ParticleSystemSimulationSpace.Local;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
         }
         
         // Configure land particles
@@ -83,10 +83,7 @@ public class PlayerVisualEffects
     {
         // Update jump particles direction
         UpdateParticleSystemDirection(jumpParticles, isFacingRight);
-        
-        // Update double jump particles direction
-        UpdateParticleSystemDirection(doubleJumpParticles, isFacingRight);
-        
+                
         // Update land particles direction
         UpdateParticleSystemDirection(landParticles, isFacingRight);
         
@@ -134,26 +131,20 @@ public class PlayerVisualEffects
         }
     }
     
-    private void ConfigureParticleSystem(ParticleSystem ps, Transform parentTransform, Vector3 localOffset = default)
+private void ConfigureParticleSystem(ParticleSystem ps, Transform parentTransform, Vector3 localOffset = default)
+{
+    if (ps == null || parentTransform == null) return;
+
+    // Ensure proper parenting
+    if (ps.transform.parent != parentTransform)
     {
-        if (ps == null || parentTransform == null) return;
-
-        // Ensure proper parenting
-        if (ps.transform.parent != parentTransform)
-        {
-            ps.transform.SetParent(parentTransform);
-        }
-
-        // Set correct local position
-        ps.transform.localPosition = localOffset;
-
-        // Ensure simulation space is local
-        var main = ps.main;
-        if (main.simulationSpace != ParticleSystemSimulationSpace.Local)
-        {
-            main.simulationSpace = ParticleSystemSimulationSpace.Local;
-        }
+        ps.transform.SetParent(parentTransform);
     }
+
+    // Set correct local position
+    ps.transform.localPosition = localOffset;
+
+}
 
     public void SyncParticlesToPlayer(Transform playerTransform)
     {
@@ -162,11 +153,6 @@ public class PlayerVisualEffects
         if (jumpParticles != null && jumpParticles.isEmitting)
         {
             jumpParticles.transform.position = playerTransform.position;
-        }
-        
-        if (doubleJumpParticles != null && doubleJumpParticles.isEmitting)
-        {
-            doubleJumpParticles.transform.position = playerTransform.position;
         }
         
         if (landParticles != null && landParticles.isEmitting)

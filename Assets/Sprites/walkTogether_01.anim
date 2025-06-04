@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fallingTogether
+  m_Name: walkTogether_01
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 0e403e7b2923c0248b11a7b66ff7cb9b, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: fa233eefad8b8cf40b6a3cc4f86b5cef, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 0e403e7b2923c0248b11a7b66ff7cb9b, type: 3}
+      value: {fileID: 21300000, guid: 2335db074c74d894182d5c7603a903cf, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: b7453d43d0dc23545b97a9a5df185615, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: d1b263843f4bb0e41969b641b043818e, type: 3}
+    - time: 1.1666666
+      value: {fileID: 21300000, guid: 2335db074c74d894182d5c7603a903cf, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,18 +50,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 0e403e7b2923c0248b11a7b66ff7cb9b, type: 3}
-    - {fileID: 21300000, guid: fa233eefad8b8cf40b6a3cc4f86b5cef, type: 3}
-    - {fileID: 21300000, guid: 0e403e7b2923c0248b11a7b66ff7cb9b, type: 3}
+    - {fileID: 21300000, guid: 2335db074c74d894182d5c7603a903cf, type: 3}
+    - {fileID: 21300000, guid: b7453d43d0dc23545b97a9a5df185615, type: 3}
+    - {fileID: 21300000, guid: d1b263843f4bb0e41969b641b043818e, type: 3}
+    - {fileID: 21300000, guid: 2335db074c74d894182d5c7603a903cf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 1.25
     m_OrientationOffsetY: 0
     m_Level: 0
-    m_CycleOffset: 0
+    m_CycleOffset: 0.76
     m_HasAdditiveReferencePose: 0
     m_LoopTime: 1
     m_LoopBlend: 0

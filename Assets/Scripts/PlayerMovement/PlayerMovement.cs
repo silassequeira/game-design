@@ -1,4 +1,5 @@
 using UnityEngine;
+using InputSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private bool jumpInput;
     private bool jumpInputHeld;
-    private bool jumpInputReleasedSinceLastJump = true; // Track if jump button was released
+    private bool jumpInputReleasedSinceLastJump = true;
+    private bool duckInputDown;  // Make sure these are declared
+    private bool duckInputHeld; // Track if jump button was released
 
     // State
     private bool isFacingRight = true;
@@ -125,18 +128,6 @@ private void Update()
         // Force audio system to use the correct surface
         audioSystem.UpdateCurrentSurface(groundDetection);
         
-        #if UNITY_EDITOR
-        // Debug info
-        if (justLanded)
-        {
-            Debug.Log($"Landing on {groundDetection.CurrentSurface}");
-        }
-        else if (groundDetection.SurfaceJustChanged)
-        {
-            Debug.Log($"Surface transitioned to {groundDetection.CurrentSurface}");
-        }
-        #endif
-        
         // Play landing sound AFTER surface has been updated
         audioSystem.PlayLandSound();
         
@@ -173,7 +164,7 @@ private void Update()
     // Handle player actions
     HandleJumping();
     HandleSpeedMomentum();
-    HandleDuck(); // Make sure this method is called
+    HandleDuck(duckInputHeld);
     
     // Update visuals
     UpdateAnimations();
@@ -209,9 +200,11 @@ private void Update()
 
     //Debug.Log($"Reading input from {inputSystem?.GetType().Name}, value: {inputSystem?.GetHorizontalInput()}");
 
-        horizontalInput = inputSystem.GetHorizontalInput();
-        jumpInput = inputSystem.GetJumpInputDown();
-        jumpInputHeld = inputSystem.GetJumpInputHeld();
+    horizontalInput = inputSystem.GetHorizontalInput();
+    jumpInput = inputSystem.GetJumpInputDown();
+    jumpInputHeld = inputSystem.GetJumpInputHeld();
+    duckInputDown = inputSystem.GetDuckInputDown();
+    duckInputHeld = inputSystem.GetDuckInputHeld();
    
     }
 
@@ -277,12 +270,24 @@ private void Update()
         audioSystem.UpdateFootsteps(groundDetection, rb.linearVelocity.x, movementSystem.MaxSpeed);
     }
 
-private void HandleDuck()
+public void HandleDuck(bool isDucking = false)
 {
-    if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+    if (isDucking)
     {
-        anim.SetTrigger("Duck");
-        audioSystem.PlayCrouchSound(); // Play surface-specific crouch sound
+        // Only trigger the duck animation if we're transitioning to ducking
+        if (!anim.GetBool("isDucked"))
+        {
+            anim.SetTrigger("Duck");
+            audioSystem.PlayCrouchSound();
+        }
+        
+        // Always set the bool state
+        anim.SetBool("isDucked", true);
+    }
+    else
+    {
+        // Clear the ducked state
+        anim.SetBool("isDucked", false);
     }
 }
 
@@ -404,21 +409,3 @@ public void SetInputSystem(IPlayerInput newInputSystem)
     public void SetJumpInputCooldown(float cooldown) => jumpSystem.SetJumpInputCooldown(cooldown);
 }
 
-// Default input implementation that uses Unity's Input system
-public class DefaultPlayerInput : IPlayerInput
-{
-    public float GetHorizontalInput()
-    {
-        return Input.GetAxisRaw("Horizontal");
-    }
-    
-    public bool GetJumpInputDown()
-    {
-        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
-    }
-    
-    public bool GetJumpInputHeld()
-    {
-        return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-    }
-}
