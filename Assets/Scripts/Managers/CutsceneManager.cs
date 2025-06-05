@@ -5,12 +5,8 @@ public class CutsceneManager : MonoBehaviour
     public static CutsceneManager Instance { get; private set; }
     
     [Header("Cutscene References")]
-    [SerializeField] private EndLevelCutscene videoCutscene;
+    [SerializeField] private VideoCutscene videoCutscene;
     [SerializeField] private IntroductoryCutscene introCutscene;
-    
-    [Header("Settings")]
-    [SerializeField] private bool allowSkippingAllCutscenes = true;
-    [SerializeField] private KeyCode skipKey = KeyCode.Escape;
     
     private bool cutsceneSequenceActive = false;
     
@@ -28,19 +24,10 @@ public class CutsceneManager : MonoBehaviour
         
         // Find references if not assigned
         if (videoCutscene == null)
-            videoCutscene = FindObjectOfType<EndLevelCutscene>();
+            videoCutscene = FindObjectOfType<VideoCutscene>();
             
         if (introCutscene == null)
             introCutscene = FindObjectOfType<IntroductoryCutscene>();
-    }
-    
-    private void Update()
-    {
-        // Skip all cutscenes if enabled
-        if (cutsceneSequenceActive && allowSkippingAllCutscenes && Input.GetKeyDown(skipKey))
-        {
-            SkipAllCutscenes();
-        }
     }
     
     // Called from GameManager.StartGame() instead of directly handling title screen
@@ -59,7 +46,7 @@ public class CutsceneManager : MonoBehaviour
             videoCutscene.OnCutsceneEnded += PlayIntroCutscene;
             
             // Start the video cutscene
-            videoCutscene.StartEndLevelCutscene();
+            videoCutscene.StartVideoCutscene();
             //Debug.Log("CutsceneManager: Starting video cutscene");
         }
         else
@@ -100,24 +87,5 @@ public class CutsceneManager : MonoBehaviour
             GameManager.Instance.SetGameState(GameManager.GameState.Playing);
             //Debug.Log("CutsceneManager: All cutscenes complete, setting state to Playing");
         }
-    }
-    
-    public void SkipAllCutscenes()
-    {
-        //Debug.Log("CutsceneManager: Skipping all cutscenes");
-        
-        // Unsubscribe from events
-        if (videoCutscene != null)
-            videoCutscene.OnCutsceneEnded -= PlayIntroCutscene;
-            
-        // Stop any active cutscenes
-        if (videoCutscene != null && videoCutscene.IsPlaying())
-            videoCutscene.ForceEndCutscene();
-            
-        if (introCutscene != null)
-            introCutscene.EndCutscene();
-            
-        // Finish the sequence
-        FinishCutsceneSequence();
     }
 }

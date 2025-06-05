@@ -3,7 +3,7 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
 
-public class EndLevelCutscene : MonoBehaviour
+public class VideoCutscene : MonoBehaviour
 {
     [SerializeField] private VideoClip videoClip;
     [SerializeField] private bool waitForVideoToEnd = true;
@@ -12,11 +12,19 @@ public class EndLevelCutscene : MonoBehaviour
     [SerializeField] private Canvas videoCanvas;
     [SerializeField] private RawImage videoImage;
     
+    [Header("Skip Settings")]
+    [SerializeField] private bool allowSkipping = true;
+    [SerializeField] private KeyCode skipKey = KeyCode.Space;
+    // Removed: [SerializeField] private GameObject skipPrompt; // Optional UI element showing "Press SPACE to skip"
+    // Removed: [SerializeField] private float skipPromptDelay = 2f; // Show skip hint after delay
+    
     private VideoPlayer videoPlayer;
+    // Removed: private float cutsceneActiveTime = 0f;
 
     public System.Action OnCutsceneEnded;
     public bool isPlaying = false;
     private RenderTexture renderTexture;
+
 
     private void Awake()
     {
@@ -73,11 +81,38 @@ public class EndLevelCutscene : MonoBehaviour
         // Register event when video is done
         videoPlayer.loopPointReached += OnVideoFinished;
     }
+      
+    private void Update()
+    {
+        // Handle skipping of video cutscene
+        if (isPlaying && allowSkipping)
+        {
+            // Removed: Show skip prompt after delay
+            // if (skipPrompt != null)
+            // {
+            //     cutsceneActiveTime += Time.deltaTime;
+            //     skipPrompt.SetActive(cutsceneActiveTime >= skipPromptDelay);
+            // }
+            
+            if (Input.GetKeyDown(skipKey))
+            {
+                ForceEndCutscene();
+            }
+        }
+    }
     
-    // Called when the level completion trigger activates
-    public void StartEndLevelCutscene()
+    public void StartVideoCutscene()
     {
         if (isPlaying || videoClip == null) return;
+        
+        // Removed: Reset timer for skip prompt
+        // cutsceneActiveTime = 0f;
+        
+        // Removed: Hide skip prompt initially
+        // if (skipPrompt != null)
+        // {
+        //     skipPrompt.SetActive(false);
+        // }
         
         // Disable player
         DisablePlayerControls();
@@ -85,7 +120,9 @@ public class EndLevelCutscene : MonoBehaviour
         // If using the GameManager
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.SetGameState(GameManager.GameState.Loading);
+            // Assuming GameManager.GameState.Loading exists and is appropriate
+            // If not, you might need to adjust or remove this line based on your GameManager setup
+            GameManager.Instance.SetGameState(GameManager.GameState.Loading); 
         }
         
         // Show the video canvas
@@ -105,7 +142,6 @@ public class EndLevelCutscene : MonoBehaviour
         }
     }
     
-    // Event handler when video completes
     private void OnVideoFinished(VideoPlayer vp)
     {
         if (waitForVideoToEnd)
@@ -123,32 +159,39 @@ public class EndLevelCutscene : MonoBehaviour
     }
     
     // End the cutscene 
-   private void EndCutscene()
-{
-    isPlaying = false;
-    videoPlayer.Stop();
-    
-    // Hide the video canvas
-    if (videoCanvas != null)
+    private void EndCutscene()
     {
-        videoCanvas.gameObject.SetActive(false);
-    }
-    
-    // Invoke the event
-    OnCutsceneEnded?.Invoke();
-    
-    // Re-enable player only if not in sequence
-    if (CutsceneManager.Instance == null)
-    {
-        EnablePlayerControls();
+        isPlaying = false;
+        videoPlayer.Stop();
         
-        // If using the GameManager
-        if (GameManager.Instance != null)
+        // Hide the video canvas
+        if (videoCanvas != null)
         {
-            GameManager.Instance.SetGameState(GameManager.GameState.Playing);
+            videoCanvas.gameObject.SetActive(false);
+        }
+        
+        // Removed: Hide skip prompt if it exists
+        // if (skipPrompt != null)
+        // {
+        //     skipPrompt.SetActive(false);
+        // }
+        
+        // Invoke the event
+        OnCutsceneEnded?.Invoke();
+        
+        // Re-enable player only if not in sequence
+        if (CutsceneManager.Instance == null) // Assuming CutsceneManager.Instance exists
+        {
+            EnablePlayerControls();
+            
+            // If using the GameManager
+            if (GameManager.Instance != null)
+            {
+                // Assuming GameManager.GameState.Playing exists and is appropriate
+                GameManager.Instance.SetGameState(GameManager.GameState.Playing);
+            }
         }
     }
-}
     
     private void DisablePlayerControls()
     {
@@ -170,11 +213,9 @@ public class EndLevelCutscene : MonoBehaviour
 
     public bool IsPlaying() => isPlaying;
 
-// Add this method
-public void ForceEndCutscene()
-{
-    if (isPlaying)
-        EndCutscene();
-}
-    
+    public void ForceEndCutscene()
+    {
+        if (isPlaying)
+            EndCutscene();
+    }
 }

@@ -101,10 +101,6 @@ public class JumpSystem
             {
                 // Provide position data to OnLand event for precise surface detection
                 OnLand?.Invoke(position);
-                
-                #if UNITY_EDITOR
-                Debug.Log($"Landing at position {position}");
-                #endif
             }
             
             coyoteTimeCounter = coyoteTime;

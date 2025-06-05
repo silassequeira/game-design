@@ -9,7 +9,7 @@ public class LevelCompleteTrigger : MonoBehaviour
     [SerializeField] private float delayBeforeCutscene = 0.5f;
 
     [Header("References")]
-    [SerializeField] private EndLevelCutscene cutsceneController;
+    [SerializeField] private VideoCutscene cutsceneController;
 
     private bool hasTriggered = false;
     private Transform playerTransform;
@@ -27,10 +27,10 @@ private void Start()
     // Find cutscene controller if not assigned
     if (cutsceneController == null)
     {
-        cutsceneController = Object.FindFirstObjectByType<EndLevelCutscene>();
+        cutsceneController = Object.FindFirstObjectByType<VideoCutscene>();
         if (cutsceneController == null)
         {
-            //Debug.LogError("No EndLevelCutscene found in scene!");
+            //Debug.LogError("No VideoCutscene found in scene!");
         }
     }
 }
@@ -59,7 +59,7 @@ private void Start()
         // Start cutscene
         if (cutsceneController != null)
         {
-            cutsceneController.StartEndLevelCutscene();
+            cutsceneController.StartVideoCutscene();
         }
     }
 
